@@ -1,0 +1,247 @@
+/* Contact Form Styles */
+.contact {
+    background: linear-gradient(
+        165deg,
+        var(--medium-gray) 0%,
+        var(--dark-gray) 100%
+    );
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact .container {
+    position: relative;
+}
+
+/* Add ambient glow effect */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(29, 185, 84, 0.3) 50%,
+        transparent 100%
+    );
+    filter: blur(2px);
+}
+
+.contact h2 {
+    color: var(--secondary);
+    text-align: left;
+    font-size: 3.2em;
+    margin: 0 0 50px 0;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    width: fit-content;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    transform: none;
+    width: 150px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 3px;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+}
+
+.contact-form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    background: linear-gradient(
+        145deg,
+        rgba(30, 30, 30, 0.9) 0%,
+        rgba(18, 18, 18, 0.95) 100%
+    );
+    border-radius: 20px;
+    border: 1px solid rgba(29, 185, 84, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.form-section {
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the animations */
+.form-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Form section headings */
+.form-section h3 {
+    color: var(--secondary);
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(29, 185, 84, 0.2);
+    position: relative;
+  /* Match section title alignment */
+    text-align: left;
+}
+
+/* Form group alignment */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(29, 185, 84, 0.1);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+/* Make all inputs consistent */
+.form-group input,
+.form-group select {
+    height: 48px;  /* Standardize height */
+}
+
+/* Form row alignment */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Adjust spacing for consecutive form rows */
+.form-row + .form-row {
+    margin-top: -10px;
+}
+
+/* Adjust spacing for last form section */
+.form-section:last-of-type {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    font-size: 0.95em;
+    margin: 0;
+}
+
+.checkbox-group label span {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    background: linear-gradient(
+        45deg,
+        var(--secondary) 0%,
+        #1ed760 100%
+    );
+    color: var(--primary);
+    padding: 18px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
+}
+
+@media (max-width: 1200px) {
+    .contact-form {
+        max-width: 90%;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .contact h2 {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section h3 {
+        margin-left: 20px;
+    }
+}

@@ -1,0 +1,242 @@
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Variables */
+:root {
+    --primary: #000000;
+    --secondary: #1DB954;  /* Spotify-like green for accents */
+    --text: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --dark-gray: #121212;
+    --medium-gray: #1E1E1E;
+    --light-gray: #404040;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text, #FFFFFF);
+    background: var(--dark-gray, #121212);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: 800;
+    margin: 0 auto 10px;
+    padding: 5px 20px;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    max-width: 800px;
+}
+
+/* Links */
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1ed760;
+}
+
+/* Buttons */
+button {
+    background: var(--secondary);
+    color: var(--primary);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+}
+
+/* Form Elements */
+input, select, textarea {
+    background: var(--dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.1);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add fallbacks for critical styles */
+body {
+    background-color: var(--dark-gray, #121212);
+    color: var(--text, #FFFFFF);
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        padding: 15px 20px;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    h3 {
+        font-size: 1.6em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+/* Selection */
+::selection {
+    background: rgba(29, 185, 84, 0.2);
+    color: var(--text);
+}
+
+/* Update section spacing */
+section {
+    padding: 10px 0;
+    position: relative;
+    scroll-margin-top: 40px;
+}
+
+/* Adjust first section margin */
+section:first-of-type {
+    margin-top: 0;
+}
+
+/* Adjust section headers */
+section h2 {
+    margin-bottom: 15px;
+}
+
+/* Update hero section specifically */
+.hero {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 50vh;
+}
+
+/* Add floating animation for mission statement */
+.mission-statement {
+    animation: floatText 6s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(29, 185, 84, 0.1);
+}
+
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-5px) translateX(2px);
+    }
+    75% {
+        transform: translateY(5px) translateX(-2px);
+    }
+}
+
+/* Add subtle glow effect */
+.mission-statement::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+    filter: blur(20px);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.animated-word,
+.mission-statement {
+    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}

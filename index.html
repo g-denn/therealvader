@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiEstate | Tokenized Real Estate</title>
+    <!-- Add favicon -->
+    <link rel="icon" type="image/png" href="/images/digiestate-logo.png">
+    <link rel="shortcut icon" type="image/png" href="/images/digiestate-logo.png">
+    <!-- Base styles first -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- Components next -->
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <!-- Section-specific styles last -->
+    <link rel="stylesheet" href="css/sections/problem.css">
+    <link rel="stylesheet" href="css/sections/solution.css">
+    <link rel="stylesheet" href="css/sections/tokenization.css">
+    <link rel="stylesheet" href="css/sections/benefits.css">
+    <link rel="stylesheet" href="css/components/property-lookup.css">
+    <link rel="stylesheet" href="css/components/code-showcase.css">
+    <script src="js/code-showcase.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Make sure this is in the head section -->
+    <link rel="stylesheet" href="css/components/chat.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="/" class="nav-brand">
+                <img src="images/digiestate-logo.png" alt="DigiEstate Logo" class="logo">
+                <span class="nav-logo">DigiEstate</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="#problem" class="nav-link">About</a>
+                    <div class="nav-dropdown">
+                        <a href="#problem" class="scroll-link">The Problem</a>
+                        <a href="#benefits" class="scroll-link">Benefits</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#tokenization" class="nav-link">How It Works</a>
+                    <div class="nav-dropdown">
+                        <a href="#tokenization" class="scroll-link">Tokenization</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/marketplace.html" class="nav-link">Properties</a>
+                    <div class="nav-dropdown">
+                        <a href="/marketplace.html">Browse Properties</a>
+                        <a href="/marketplace.html#lookup">Property Lookup</a>
+                    </div>
+                </div>
+                <a href="/investments.html" class="nav-page">Investments</a>
+                <a href="/wallet.html" class="nav-page">Wallet</a>
+                <a href="#contact" class="nav-page contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+        <div class="floating-orb orb-4"></div>
+        <div class="floating-orb orb-5"></div>
+        <div class="floating-orb orb-6"></div>
+        <div class="container">
+            <h1>
+                <span>Revolutionizing Real Estate</span>
+                <span>Through Blockchain Technology</span>
+            </h1>
+            <p><style></style>Rebuilding communities and protecting assets in an era of unprecedented challenges</p>
+
+            <div class="hero-stats">
+                <div class="crisis-stats">
+                    <p class="hero-stat"><span><strong>93%</strong>Lower Transaction Costs</span></p>
+                    <p class="hero-stat"><span><strong>0</strong>Settlement Time</span></p>
+                    <p class="hero-stat"><span><strong>RM100</strong>Minimum Investment</span></p>
+                    <p class="hero-stat"><span><strong>24/7</strong>Global Trading</span></p>
+                    <p class="hero-stat"><span><strong>15x</strong>More Liquid</span></p>
+                    <p class="hero-stat"><span>Automated Income Distribution</span></p>
+                    <p class="hero-stat"><span>Zero Paperwork Required</span></p>
+                    <p class="hero-stat"><span>100% Transparent Records</span></p>
+                    <p class="hero-stat"><span>5-Minute Investment Process</span></p>
+                    <p class="hero-stat"><span>Earn While Properties Appreciate</span></p>
+                    <div class="hero-quote">
+                        <p class="quote-text">"Don't Wait to Buy Real Estate, Buy Real Estate and Wait"</p>
+                        <div class="quote-attribution">
+                            <p class="quote-author">— Will Rogers</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problem" class="problem" style="padding: 80px 0; background: linear-gradient(165deg, var(--dark-gray) 0%, var(--primary) 100%);">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 3.2em; background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 50px 0;">Your Opportunities</h2>
+        </div>
+        
+        <div style="display: flex; gap: 40px; padding: 0 200px; margin-bottom: 40px; justify-content: center;">
+            <!-- Left side - Main text -->
+            <div style="max-width: 900px; background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); border-radius: 20px; border: 1px solid rgba(29, 185, 84, 0.15); padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+                <p style="color: var(--text); font-size: 1.4em; line-height: 1.8; margin-bottom: 30px; font-weight: 300;">
+                    <span style="color: var(--secondary); font-weight: 500;">Transform your property into a digital powerhouse!</span> Imagine unlocking the hidden potential of your real estate through simple, secure tokenization. Just like splitting a pie into perfectly sized slices, tokenization lets you divide your property ownership into digital shares – opening doors to possibilities you never thought possible.
+                </p>
+                
+                <p style="color: var(--text); font-size: 1.4em; line-height: 1.8; margin-bottom: 30px; font-weight: 300;">
+                    Gone are the days of all-or-nothing property ownership. Now you can <span style="color: var(--secondary); font-weight: 500;">tap into your property's value without the burden of loans</span>, share ownership while staying in control, and turn your real estate into a flexible asset that works harder for you. Best of all? It's as straightforward as using your smartphone.
+                </p>
+                
+                <p style="color: var(--text); font-size: 1.4em; line-height: 1.8; font-weight: 300;">
+                    Join the property revolution where <span style="color: var(--secondary); font-weight: 500;">blockchain technology meets real estate simplicity</span>. Your journey to smarter property ownership starts here.
+                </p>
+            </div>
+
+            <!-- Right side - Use cases -->
+            <div style="width: 400px; display: grid; grid-template-rows: repeat(3, 1fr); gap: 20px;">
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
+                                <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3m4-3v3m4-3v3"/>
+                            </svg>
+                        </div>
+                        <h3 style="color: var(--secondary); font-size: 1.2em; margin: 0;">Property Improvements</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Raise renovation funds without loans
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Share in property value appreciation
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Streamline improvement financing
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 style="color: var(--secondary); font-size: 1.2em; margin: 0;">Rental Income Management</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Automate rental distributions
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Real-time payment tracking
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Smart contract-managed funds
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                            </svg>
+                        </div>
+                        <h3 style="color: var(--secondary); font-size: 1.2em; margin: 0;">Flexible Ownership</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Maintain control while sharing
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Create steady income streams
+                        </li>
+                        <li style="color: var(--text); line-height: 1.6; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--secondary); font-size: 1.2em;">→</span>
+                            Access equity without debt
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenization" class="tokenization">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="tokenization-container">
+                <div class="tokenization-text">
+                    <p class="intro-text">Imagine turning your property into digital shares, similar to how a company offers stocks. Using Ethereum's secure blockchain technology, we convert real estate into easily tradeable digital tokens. This means you can own a piece of property for a fraction of its total cost, trade it instantly, and participate in its value growth - all while helping protect communities through shared insurance pools.</p>
+                    
+                    <div class="token-features">
+                        <p><strong>Digital Shares</strong> Just like stocks, but for real estate</p>
+                        <p><strong>Easy Access</strong> Start with any amount you choose</p>
+                        <p><strong>Full Protection</strong> Backed by real property value</p>
+                    </div>
+                </div>
+
+                <div class="tokenization-steps">
+                    <h3>How Tokenization Works</h3>
+                    <div class="steps-container">
+                        <div class="step">
+                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                <!-- House Vector -->
+                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                    <path d="M50 20L20 45V80H80V45L50 20Z"/>
+                                    <path d="M45 80V60H55V80"/>
+                                    <rect x="35" y="45" width="12" height="12"/>
+                                </g>
+                            </svg>
+                            <div class="step-content">
+                                <h4>Asset Verification</h4>
+                                <p>Property validated & valued by certified assessors</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                <!-- Token Vector -->
+                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                    <circle cx="50" cy="50" r="30"/>
+                                    <path d="M50 30V70"/>
+                                    <path d="M35 40H65"/>
+                                </g>
+                            </svg>
+                            <div class="step-content">
+                                <h4>Tokenization</h4>
+                                <p>Smart contracts create and distribute digital shares</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                <!-- Market Vector -->
+                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                    <path d="M20 20V80H80"/>
+                                    <path d="M25 60L35 40L45 65L60 30L75 45" class="chart-line"/>
+                                </g>
+                            </svg>
+                            <div class="step-content">
+                                <h4>Distribution</h4>
+                                <p>Tokens become available for trading on the platform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <div class="protocol-icon eth-black">
+                            <img src="images/ethereum/eth-black.png" alt="Ethereum Icon">
+                        </div>
+                        <h3>ERC-20</h3>
+                    </div>
+                    <p>The most common token standard, perfect for creating fungible tokens that represent equal shares of an asset.</p>
+                    <ul>
+                        <li>Easily tradable on exchanges</li>
+                        <li>Widely supported by wallets</li>
+                        <li>Ideal for fractional ownership</li>
+                    </ul>
+                </div>
+
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <div class="protocol-icon">
+                            <img src="images/ethereum/eth.png" alt="Ethereum Icon">
+                        </div>
+                        <h3>ERC-721</h3>
+                    </div>
+                    <p>Non-fungible tokens (NFTs) for unique assets with specific characteristics and ownership history.</p>
+                    <ul>
+                        <li>Unique property identifiers</li>
+                        <li>Individual asset tracking</li>
+                        <li>Complete ownership history</li>
+                    </ul>
+                </div>
+
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <div class="protocol-icon eth-orange">
+                            <img src="images/ethereum/eth-orange.png" alt="Ethereum Icon">
+                        </div>
+                        <h3>ERC-1155</h3>
+                    </div>
+                    <p>Hybrid protocol supporting both fungible and non-fungible tokens in a single smart contract.</p>
+                    <ul>
+                        <li>Multiple token types</li>
+                        <li>Reduced gas costs</li>
+                        <li>Flexible asset management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="code-showcase">
+                <div class="code-container">
+                    <div class="code-header">
+                        <span class="file-name">RealEstateToken.sol</span>
+                        <div class="code-actions">
+                            <button class="copy-btn" onclick="copyCode()">Copy</button>
+                        </div>
+                    </div>
+                    <pre class="code-content"><code class="language-solidity"><span class="comment">// SPDX-License-Identifier: MIT</span>
+<span class="keyword">pragma</span> <span class="keyword">solidity</span> ^0.8.0;
+
+<span class="comment">/* OpenZeppelin Imports for Security & Standards */</span>
+<span class="keyword">import</span> <span class="string">"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"</span>;
+<span class="keyword">import</span> <span class="string">"@openzeppelin/contracts/access/Ownable.sol"</span>;
+
+<span class="comment">/* Main Contract Definition */</span>
+<span class="keyword">contract</span> <span class="custom-type">RealEstateToken</span> <span class="keyword">is</span> ERC721URIStorage, Ownable {
+    <span class="comment">/* Property Data Structure */</span>
+    <span class="keyword">struct</span> <span class="custom-type">Property</span> {
+        <span class="type">uint256</span> <span class="variable">id</span>;          <span class="comment">// Unique property identifier</span>
+        <span class="type">string</span> <span class="variable">location</span>;     <span class="comment">// Physical location of the property</span>
+        <span class="type">uint256</span> <span class="variable">valuation</span>;   <span class="comment">// Current market value</span>
+        <span class="type">bool</span> <span class="variable">forSale</span>;        <span class="comment">// Whether property is listed for sale</span>
+        <span class="type">uint256</span> <span class="variable">rentalIncome</span>;<span class="comment">// Accumulated rental payments</span>
+        <span class="type">uint256</span> <span class="variable">lastDistributionTime</span>;
+    }
+
+    <span class="comment">/* State Variables & Mappings */</span>
+    <span class="keyword">mapping</span>(<span class="type">uint256</span> => <span class="custom-type">Property</span>) <span class="keyword">public</span> <span class="variable">properties</span>;
+    <span class="keyword">mapping</span>(<span class="type">uint256</span> => <span class="keyword">mapping</span>(<span class="type">address</span> => <span class="type">uint256</span>)) <span class="keyword">public</span> <span class="variable">dividendBalance</span>;
+
+    <span class="comment">/* Property Tokenization Function */</span>
+    <span class="keyword">function</span> <span class="function">tokenizeProperty</span>(
+        <span class="type">string</span> <span class="storage">memory</span> <span class="variable">_location</span>,
+        <span class="type">uint256</span> <span class="variable">_valuation</span>
+    ) <span class="keyword">public</span> <span class="keyword">onlyOwner</span> <span class="keyword">returns</span> (<span class="type">uint256</span>) {
+        <span class="comment">// Create new property token</span>
+        <span class="type">uint256</span> <span class="variable">newPropertyId</span> = _tokenIds.current();
+        _mint(<span class="variable">msg.sender</span>, <span class="variable">newPropertyId</span>);
+        
+        <span class="comment">// Store property details</span>
+        <span class="variable">properties</span>[<span class="variable">newPropertyId</span>] = <span class="custom-type">Property</span>({
+            <span class="variable">id</span>: <span class="variable">newPropertyId</span>,
+            <span class="variable">location</span>: <span class="variable">_location</span>,
+            <span class="variable">valuation</span>: <span class="variable">_valuation</span>,
+            <span class="variable">forSale</span>: <span class="keyword">false</span>,
+            <span class="variable">rentalIncome</span>: <span class="number">0</span>,
+            <span class="variable">lastDistributionTime</span>: <span class="variable">block.timestamp</span>
+        });
+    }</code></pre>
+                </div>
+                <div class="code-explanation">
+                    <h3>Smart Contract Breakdown</h3>
+                    <div class="explanation-item">
+                        <h4>Property Data Structure</h4>
+                        <p>The contract uses a comprehensive Property struct to store essential information about each tokenized property, including its location, value, and rental income status.</p>
+                    </div>
+                    <div class="explanation-item">
+                        <h4>Tokenization Process</h4>
+                        <p>Properties are converted into unique NFTs using the ERC721 standard, ensuring secure and verifiable ownership on the blockchain. Each token is linked to specific property details and rental income rights.</p>
+                    </div>
+                    <div class="explanation-item">
+                        <h4>Income Management</h4>
+                        <p>The contract includes automated systems for handling rental payments and distributing income to token holders, with built-in security checks and transparent transaction records.</p>
+                    </div>
+                    <div class="explanation-item">
+                        <h4>Security Features</h4>
+                        <p>Built on OpenZeppelin's battle-tested contracts with role-based access control and standardized token implementations for maximum security and compatibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits" style="
+        padding: 80px 0; 
+        background: radial-gradient(circle at 10% 20%, rgba(30, 30, 30, 0.98) 0%, rgba(18, 18, 18, 0.97) 90%),
+                    repeating-linear-gradient(45deg, 
+                        rgba(29, 185, 84, 0.05) 0%, 
+                        rgba(29, 185, 84, 0.05) 1px,
+                        transparent 1px,
+                        transparent 10px);
+        position: relative;
+        overflow: hidden;
+    ">
+        <!-- Add subtle animated orbs in the background -->
+        <div style="
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+        "></div>
+        <div style="
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, rgba(29, 185, 84, 0.08) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite reverse;
+        "></div>
+
+        <!-- Rest of the benefits content -->
+        <div class="container" style="position: relative; z-index: 1;">
+            <h2>Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <h3>Easy Investment</h3>
+                        <p class="benefit-tagline">Fractional Investment</p>
+                    </div>
+                    <div class="benefit-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">RM100</span>
+                            <span class="highlight-text">Entry Point</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">24/7</span>
+                            <span class="highlight-text">Access</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <h3>Instant Liquidity</h3>
+                        <p class="benefit-tagline">Trade Anytime, Anywhere</p>
+                    </div>
+                    <div class="benefit-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">2min</span>
+                            <span class="highlight-text">Settlement</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">100%</span>
+                            <span class="highlight-text">Digital</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <h3>Smart Governance</h3>
+                        <p class="benefit-tagline">Automated Property Management</p>
+                    </div>
+                    <div class="benefit-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">1-tap</span>
+                            <span class="highlight-text">Voting</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">100%</span>
+                            <span class="highlight-text">Transparent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-header">
+                        <h3>Market Growth</h3>
+                        <p class="benefit-tagline">Malaysia Real Estate Performance</p>
+                    </div>
+                    <div class="benefit-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">RM11.9T</span>
+                            <span class="highlight-text">Market Size</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">9.4%</span>
+                            <span class="highlight-text">Annual Return</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>get started</h2>
+            <form class="contact-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="fullName">Full Legal Name*</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Information -->
+                <div class="form-section">
+                    <h3>Property Details</h3>
+                    <div class="form-group">
+                        <label for="propertyAddress">Property Address*</label>
+                        <input type="text" id="propertyAddress" placeholder="Street Address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City*</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State*</label>
+                            <select id="state" required>
+                                <option value="">Select State</option>
+                                <option value="Johor">Johor</option>
+                                <option value="Kedah">Kedah</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                <option value="Pahang">Pahang</option>
+                                <option value="Penang">Penang</option>
+                                <option value="Perak">Perak</option>
+                                <option value="Perlis">Perlis</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Terengganu">Terengganu</option>
+                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                <option value="Labuan">Labuan</option>
+                                <option value="Putrajaya">Putrajaya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">Postcode*</label>
+                            <input type="text" id="zipCode" pattern="[0-9]{5}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyValue">Estimated Property Value*</label>
+                            <input type="number" id="propertyValue" placeholder="MYR" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyType">Property Type*</label>
+                            <select id="propertyType" required>
+                                <option value="">Select Type</option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="mixed">Mixed Use</option>
+                                <option value="land">Land</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ownership Structure -->
+                <div class="form-section">
+                    <h3>Ownership Information</h3>
+                    <div class="form-group">
+                        <label for="ownershipType">Current Ownership Structure*</label>
+                        <select id="ownershipType" required>
+                            <option value="">Select Structure</option>
+                            <option value="individual">Individual</option>
+                            <option value="joint">Joint Ownership</option>
+                            <option value="sdn-bhd">Sdn Bhd</option>
+                            <option value="trust">Trust</option>
+                            <option value="berhad">Berhad (Public Company)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tokenizationExperience">Have you tokenized assets before?*</label>
+                        <select id="tokenizationExperience" required>
+                            <option value="">Select Answer</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>Additional Details</h3>
+                    <div class="form-group">
+                        <label for="comments">Additional Information or Questions</label>
+                        <textarea id="comments" rows="4" placeholder="Tell us more about your tokenization goals..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Terms Acceptance -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        I agree to the terms and conditions
+                        <span>By checking this box, you consent to property verification and agree to our privacy policy</span>
+                    </label>
+                </div>
+
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/digiestate-logo.png" alt="DigiEstate Logo">
+                        <span>DigiEstate</span>
+                    </div>
+                    <p>Revolutionizing real estate through blockchain technology and property tokenization. Making property ownership accessible, transparent, and community-driven.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#problem">The Problem</a></li>
+                        <li><a href="#tokenization">How It Works</a></li>
+                        <li><a href="#solution">Our Solution</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="/marketplace.html">Properties</a></li>
+                        <li><a href="/investments.html">Investments</a></li>
+                        <li><a href="/wallet.html">Wallet</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@digiestate.com</p>
+                    <p>Support: 24/7 Available</p>
+                    <p>Location: Kuala Lumpur, Malaysia</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 DigiEstate. All rights reserved.</p>
+                <p class="disclaimer">Operating under applicable insurance and securities regulations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chat Interface -->
+    <div class="chat-container" style="display: none;">
+        <div class="chat-header">
+            <div class="ai-profile">
+                <div class="ai-avatar">
+                    <img src="/images/ai-avatar-2.png" alt="TokenAI Avatar" id="aiAvatar">
+                </div>
+                <div class="ai-info">
+                    <h3>TokenAI</h3>
+                    <span class="ai-status">Insurance Specialist</span>
+                </div>
+            </div>
+            <button id="closeChat" class="close-btn">&times;</button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ask about tokenization...">
+            <button id="sendMessage">Send</button>
+        </div>
+        <div class="chat-footer">
+            <span id="remainingMessages">5 messages remaining</span>
+        </div>
+    </div>
+    <button id="openChat" class="chat-trigger">
+        <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </button>
+
+    <style>
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 380px;
+            height: 600px;
+            background: linear-gradient(
+                to bottom,
+                var(--dark-gray) 0%,
+                rgba(18, 18, 18, 0.98) 100%
+            );
+            border-radius: 15px;
+            border: 1px solid rgba(29, 185, 84, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            cursor: default;
+        }
+
+        .chat-header {
+            padding: 15px 20px;
+            background: linear-gradient(
+                90deg,
+                rgba(29, 185, 84, 0.1) 0%,
+                rgba(18, 18, 18, 0.95) 100%
+            );
+            color: var(--text);
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(29, 185, 84, 0.15);
+        }
+
+        .chat-header h3 {
+            color: var(--secondary);
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 5px;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--secondary);
+            transform: rotate(90deg);
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            cursor: default;
+        }
+
+        .chat-input {
+            padding: 20px;
+            display: flex;
+            gap: 12px;
+            border-top: 1px solid rgba(29, 185, 84, 0.1);
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            background: var(--medium-gray);
+            border: 1px solid rgba(29, 185, 84, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1em;
+            transition: all 0.3s ease;
+            cursor: text;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.1);
+        }
+
+        .chat-input button {
+            padding: 12px 20px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #1ed760;
+            transform: translateY(-2px);
+        }
+
+        .chat-trigger {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            padding: 0;  /* Remove default padding */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+
+        .icon-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-trigger:hover {
+            transform: scale(1.1);
+            background: #1ed760;
+        }
+
+        .chat-trigger svg {
+            width: 28px;  /* Slightly larger icon */
+            height: 28px;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 15px;
+            max-width: 85%;
+            position: relative;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .user-message {
+            background: linear-gradient(
+                to left,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-right: auto;
+        }
+
+        .ai-message {
+            background: linear-gradient(
+                to right,
+                rgba(29, 185, 84, 0.05) 0%,
+                rgba(29, 185, 84, 0.1) 100%
+            );
+            border: 1px solid rgba(29, 185, 84, 0.15);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-left: auto;
+        }
+
+        .chat-footer {
+            padding: 15px;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            font-size: 0.9em;
+        }
+
+        /* Custom Scrollbar */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--dark-gray);
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(29, 185, 84, 0.2);
+            border-radius: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(29, 185, 84, 0.3);
+        }
+
+        /* Message Animation */
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            animation: messageAppear 0.3s ease forwards;
+        }
+
+        /* Add typing indicator animation */
+        .typing-container {
+            display: none; /* Hide the container completely */
+        }
+
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Remove the old typing styles */
+        .typing-dot {
+            display: none;
+        }
+
+        /* Add styles for disabled state */
+        .chat-input input:disabled,
+        .chat-input button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            background: rgba(255, 0, 0, 0.1) !important;
+            border-color: rgba(255, 0, 0, 0.2) !important;
+        }
+
+        .citations {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            padding-top: 8px;
+        }
+
+        .citations a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .citations a:hover {
+            text-decoration: underline;
+            color: #1ed760;
+        }
+
+        .ai-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ai-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+            background: rgba(29, 185, 84, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ai-info h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--secondary);
+        }
+
+        .ai-status {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+        }
+
+        /* Add these cursor styles */
+        .chat-trigger {
+            cursor: pointer;
+        }
+
+        .chat-input input {
+            cursor: text;
+        }
+
+        .chat-input button {
+            cursor: pointer;
+        }
+
+        .close-btn {
+            cursor: pointer;
+        }
+
+        /* Update the chat messages area cursor */
+        .chat-messages {
+            cursor: default;
+        }
+
+        /* Add hover effect for clickable elements */
+        .chat-input button:hover,
+        .chat-trigger:hover,
+        .close-btn:hover {
+            cursor: pointer;
+        }
+
+        /* Add disabled cursor state */
+        .chat-input input:disabled,
+        .chat-input button:disabled {
+            cursor: not-allowed;
+        }
+
+        /* Add custom cursor for the entire chat container */
+        .chat-container {
+            cursor: default;
+        }
+
+        /* Professional Section Titles - Simplified */
+        section h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 1em;
+            position: relative;
+            text-align: center;
+            color: var(--secondary);
+            letter-spacing: -0.02em;
+        }
+
+        /* Subtitle styling - Simplified */
+        section h3 {
+            font-size: 1.5em;
+            color: var(--text);
+            margin-bottom: 1em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Section padding */
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+            // Initialize or get message count from localStorage
+            let messageCount = parseInt(localStorage.getItem('chatMessageCount') || '0');
+            const MAX_MESSAGES = 5;
+            
+            // Initialize session ID if not exists
+            let sessionId = localStorage.getItem('chatSessionId');
+            if (!sessionId) {
+                sessionId = Date.now().toString();
+                localStorage.setItem('chatSessionId', sessionId);
+                localStorage.setItem('chatMessageCount', '0');
+                messageCount = 0;
+            }
+
+            // Check if session is older than 24 hours
+            const sessionAge = Date.now() - parseInt(sessionId);
+            if (sessionAge > 24 * 60 * 60 * 1000) { // 24 hours in milliseconds
+                // Reset session
+                sessionId = Date.now().toString();
+                localStorage.setItem('chatSessionId', sessionId);
+                localStorage.setItem('chatMessageCount', '0');
+                messageCount = 0;
+            }
+
+            // Add this near the top of your DOMContentLoaded event listener
+            let welcomeMessageShown = localStorage.getItem('welcomeMessageShown') === 'true';
+
+            const chatContainer = document.querySelector('.chat-container');
+            const openChatBtn = document.getElementById('openChat');
+            const closeChatBtn = document.getElementById('closeChat');
+            const sendMessageBtn = document.getElementById('sendMessage');
+            const userInput = document.getElementById('userInput');
+
+            // Update UI to reflect current message count
+            updateRemainingMessages();
+            
+            // Disable input if max messages reached
+            if (messageCount >= MAX_MESSAGES) {
+                disableChat();
+            }
+
+            // Replace the existing welcome message with this streaming version
+            async function showWelcomeMessage() {
+                const welcomeMessage = `Hello! I'm TokenAI, your dedicated tokenization specialist
+
+I'm here to help you understand how DigiEstate is revolutionizing the tokenization industry through blockchain technology
+
+I can explain:
+
+• How tokenization works
+• Fractional ownership in Real Estate
+• Our Solution to Tokenizatoin
+• Security features with DigiEstate
+
+
+What would you like to know more about?`;
+
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'ai-message');
+                document.getElementById('chatMessages').appendChild(messageDiv);
+
+                try {
+                    let displayedText = '';
+                    for (const char of welcomeMessage) {
+                        await new Promise(resolve => setTimeout(resolve, 20));
+                        displayedText += char;
+                        messageDiv.innerHTML = displayedText.replace(/\n/g, '<br>');
+                    }
+                } catch (error) {
+                    console.error('Error in welcome message:', error);
+                }
+            }
+
+            // Update the chat open event listener
+            openChatBtn.addEventListener('click', async () => {
+                try {
+                    // Clear previous messages when opening chat
+                    const chatMessages = document.getElementById('chatMessages');
+                    chatMessages.innerHTML = '';
+                    
+                    chatContainer.style.display = 'flex';
+                    openChatBtn.style.display = 'none';
+                    
+                    // Always show welcome message when chat is opened
+                    console.log('Showing welcome message...');
+                    await showWelcomeMessage();
+                    console.log('Welcome message complete');
+                    
+                    // If max messages reached, show the limit message after welcome
+                    if (messageCount >= MAX_MESSAGES) {
+                        const alertMessage = document.createElement('div');
+                        alertMessage.classList.add('message', 'ai-message', 'error-message');
+                        alertMessage.textContent = 'You have reached the maximum number of messages for this session. Please try again in 24 hours.';
+                        document.getElementById('chatMessages').appendChild(alertMessage);
+                    }
+                } catch (error) {
+                    console.error('Error in chat open:', error);
+                }
+            });
+
+            closeChatBtn.addEventListener('click', () => {
+                chatContainer.style.display = 'none';
+                openChatBtn.style.display = 'block';
+            });
+
+            // Chat functionality
+            sendMessageBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            async function sendMessage() {
+                if (messageCount >= MAX_MESSAGES) {
+                    showMaxMessagesAlert();
+                    return;
+                }
+
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                // Add user message to chat
+                addMessageToChat(message, 'user');
+                userInput.value = '';
+
+                // Add loading indicator
+                const loadingDiv = document.createElement('div');
+                loadingDiv.classList.add('message', 'ai-message', 'loading');
+                loadingDiv.innerHTML = `
+                    <div class="typing-indicator">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                `;
+                document.getElementById('chatMessages').appendChild(loadingDiv);
+
+                try {
+                    const response = await fetch('/.netlify/functions/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message })
+                    });
+
+                    // Remove loading indicator
+                    loadingDiv.remove();
+
+                    const data = await response.json();
+                    
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+
+                    // Create response message container
+                    const responseDiv = document.createElement('div');
+                    responseDiv.classList.add('message', 'ai-message');
+                    document.getElementById('chatMessages').appendChild(responseDiv);
+
+                    // Emulate streaming like welcome message
+                    let displayedText = '';
+                    for (const char of data.message) {
+                        await new Promise(resolve => setTimeout(resolve, 20));
+                        displayedText += char;
+                        responseDiv.innerHTML = displayedText.replace(/\n/g, '<br>');
+                    }
+
+                    // Add citations if available
+                    if (data.citations && data.citations.length > 0) {
+                        const citationsDiv = document.createElement('div');
+                        citationsDiv.classList.add('citations');
+                        citationsDiv.innerHTML = `<small>Sources: ${data.citations.slice(0, 3).map(url => 
+                            `<a href="${url}" target="_blank">${new URL(url).hostname}</a>`
+                        ).join(', ')}</small>`;
+                        responseDiv.appendChild(citationsDiv);
+                    }
+
+                    // Update message count
+                    messageCount++;
+                    localStorage.setItem('chatMessageCount', messageCount.toString());
+                    updateRemainingMessages();
+
+                    // Add this right before setting values
+                    console.log('Setting values to DOM:', {
+                        estimatedValue: data.propertyData.estimatedValue,
+                        propertyValueElement: document.getElementById('propertyValue'),
+                        allData: data.propertyData
+                    });
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    responseDiv.textContent = 'Sorry, I encountered an error. Please try again.';
+                }
+            }
+
+            function addMessageToChat(message, sender) {
+                const chatMessages = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', `${sender}-message`);
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+            }
+
+            function updateRemainingMessages() {
+                const remaining = MAX_MESSAGES - messageCount;
+                const remainingText = remaining === 0 
+                    ? 'No messages remaining - Session complete' 
+                    : `${remaining} message${remaining !== 1 ? 's' : ''} remaining`;
+                document.getElementById('remainingMessages').textContent = remainingText;
+            }
+
+            function disableChat() {
+                userInput.disabled = true;
+                sendMessageBtn.disabled = true;
+                userInput.placeholder = 'Maximum messages reached for this session';
+                addMessageToChat('You have reached the maximum number of messages for this session. Please try again in 24 hours.', 'ai');
+            }
+
+            function showMaxMessagesAlert() {
+                const alertMessage = document.createElement('div');
+                alertMessage.classList.add('message', 'ai-message', 'error-message');
+                alertMessage.textContent = 'You have reached the maximum number of messages for this session. Please try again in 24 hours.';
+                document.getElementById('chatMessages').appendChild(alertMessage);
+            }
+
+            // First, let's create a function to get a random avatar
+            let currentAvatarIndex = 1;
+
+            function getRandomAvatar() {
+                return '/images/ai-avatar-2.png'; // Always return avatar 2
+            }
+
+            function setAvatar(avatarImg) {
+                avatarImg.onerror = function() {
+                    console.error('Failed to load avatar:', avatarImg.src);
+                    // Fallback to avatar 2
+                    avatarImg.src = '/images/ai-avatar-2.png';
+                };
+            }
+
+            // Add this to your DOMContentLoaded listener
+            const avatarImg = document.getElementById('aiAvatar');
+            setAvatar(avatarImg);
+
+            // Add secret key combination handler
+            let secretCode = '';
+            document.addEventListener('keydown', (e) => {
+                // Check for Ctrl + Shift + R
+                if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+                    e.preventDefault(); // Prevent page refresh
+                    messageCount = 0;
+                    localStorage.setItem('chatMessageCount', '0');
+                    updateRemainingMessages();
+                    
+                    // Re-enable chat if it was disabled
+                    userInput.disabled = false;
+                    sendMessageBtn.disabled = false;
+                    userInput.placeholder = 'Ask about tokenization...';
+                    
+                    // Show subtle confirmation
+                    const chatMessages = document.getElementById('chatMessages');
+                    if (chatMessages) {
+                        const resetMsg = document.createElement('div');
+                        resetMsg.classList.add('message', 'ai-message');
+                        resetMsg.style.opacity = '0.7';
+                        resetMsg.textContent = '🔄 Message limit reset';
+                        chatMessages.appendChild(resetMsg);
+                        setTimeout(() => resetMsg.remove(), 2000);
+                    }
+                }
+            });
+
+            // Update the Get Started button handler
+            const propertyLookup = document.querySelector('.property-lookup');
+            const mainContent = document.querySelectorAll('section:not(.property-lookup)');
+            const navLinks = document.querySelectorAll('.nav-links a:not(.contact-btn):not([href*="marketplace"])');
+            
+            // Handle navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    showMainContent();
+                    
+                    // Scroll to the target section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Helper function to show main content
+            function showMainContent() {
+                mainContent.forEach(section => {
+                    section.style.display = 'block';
+                });
+                propertyLookup.style.display = 'none';
+            }
+
+            // Add scroll detection for automatic chat popup
+            const hero = document.querySelector('.hero');
+            let chatShown = false;
+
+            window.addEventListener('scroll', () => {
+                if (!chatShown) {
+                    const heroBottom = hero.offsetTop + hero.offsetHeight;
+                    const scrollPosition = window.scrollY + window.innerHeight;
+                    
+                    if (scrollPosition > heroBottom) {
+                        // Show chat window
+                        chatContainer.style.display = 'flex';
+                        openChatBtn.style.display = 'none';
+                        
+                        // Show welcome message
+                        showWelcomeMessage();
+                        
+                        // Update flag to prevent multiple triggers
+                        chatShown = true;
+                    }
+                }
+            });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+            e.preventDefault();
+            const propertyLookup = document.querySelector('.property-lookup');
+            const mainContent = document.querySelectorAll('section:not(.property-lookup)');
+            
+            if (propertyLookup.style.display === 'none') {
+                mainContent.forEach(section => section.style.display = 'none');
+                propertyLookup.style.display = 'block';
+            } else {
+                mainContent.forEach(section => section.style.display = 'block');
+                propertyLookup.style.display = 'none';
+            }
+        }
+    });
+
+    // Update the form submission handler
+    document.querySelector('.lookup-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const results = document.querySelector('.property-results');
+        if (!results) return;
+
+        // Show simple loading spinner without text
+        results.style.display = 'block';
+        results.innerHTML = `
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+            </div>
+        `;
+
+        try {
+            const response = await fetch('/.netlify/functions/property-lookup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    address: document.getElementById('address')?.value || '',
+                    city: document.getElementById('city')?.value || '',
+                    state: document.getElementById('state')?.value || ''
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            
+            // Restore the original HTML structure
+            results.innerHTML = `
+                <h3>Property Details</h3>
+                <div class="property-card">
+                    <div class="property-section">
+                        <h4>Basic Information</h4>
+                        <div class="property-grid">
+                            <div class="property-detail">
+                                <span class="detail-label">Estimated Value</span>
+                                <span class="detail-value" id="propertyValue2"></span>
+                            </div>
+                            <div class="property-detail">
+                                <span class="detail-label">Square Footage</span>
+                                <span class="detail-value" id="squareFootage"></span>
+                            </div>
+                            <div class="property-detail">
+                                <span class="detail-label">Year Built</span>
+                                <span class="detail-value" id="yearBuilt"></span>
+                            </div>
+                            <div class="property-detail">
+                                <span class="detail-label">Bedrooms</span>
+                                <span class="detail-value" id="bedrooms"></span>
+                            </div>
+                            <div class="property-detail">
+                                <span class="detail-label">Bathrooms</span>
+                                <span class="detail-value" id="bathrooms"></span>
+                            </div>
+                            <div class="property-detail">
+                                <span class="detail-label">Lot Size</span>
+                                <span class="detail-value" id="lotSize"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="property-section">
+                        <h4>Neighborhood</h4>
+                        <div class="neighborhood-info">
+                            <div class="rating-container">
+                                <span class="detail-label">Area Rating</span>
+                                <div class="rating-stars" id="neighborhoodRating"></div>
+                            </div>
+                            <p id="neighborhoodDescription"></p>
+                            <div class="amenities" id="amenities"></div>
+                        </div>
+                    </div>
+
+                    <div class="property-section">
+                        <h4>Market Trends</h4>
+                        <div class="market-trends">
+                            <div class="trend-item">
+                                <span class="detail-label">Yearly Appreciation</span>
+                                <span class="detail-value" id="yearlyAppreciation"></span>
+                            </div>
+                            <div class="trend-item">
+                                <span class="detail-label">Median Price</span>
+                                <span class="detail-value" id="medianPrice"></span>
+                            </div>
+                            <div class="trend-item">
+                                <span class="detail-label">Days on Market</span>
+                                <span class="detail-value" id="daysOnMarket"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Extract property data with guaranteed format
+            const { propertyData } = data;
+            
+            // Update all values consistently
+            document.getElementById('propertyValue2').textContent = new Intl.NumberFormat('ms-MY', {
+                style: 'currency',
+                currency: 'MYR',
+                maximumFractionDigits: 0
+            }).format(propertyData.estimatedValue);
+
+            document.getElementById('squareFootage').textContent = `${propertyData.squareFootage.toLocaleString()} sq ft`;
+            document.getElementById('yearBuilt').textContent = propertyData.yearBuilt;
+            document.getElementById('bedrooms').textContent = propertyData.bedrooms;
+            document.getElementById('bathrooms').textContent = propertyData.bathrooms;
+            document.getElementById('lotSize').textContent = propertyData.lotSize;
+
+            // Neighborhood info
+            const rating = propertyData.neighborhood.rating;
+            document.getElementById('neighborhoodRating').textContent = '★'.repeat(rating) + '☆'.repeat(10 - rating);
+            document.getElementById('neighborhoodDescription').textContent = propertyData.neighborhood.description;
+
+            // Amenities
+            document.getElementById('amenities').innerHTML = propertyData.neighborhood.amenities
+                .map(amenity => `<span class="amenity-tag">${amenity}</span>`)
+                .join('');
+
+            // Market trends
+            document.getElementById('yearlyAppreciation').textContent = propertyData.marketTrends.yearlyAppreciation;
+            document.getElementById('medianPrice').textContent = new Intl.NumberFormat('ms-MY', {
+                style: 'currency',
+                currency: 'MYR',
+                maximumFractionDigits: 0
+            }).format(propertyData.marketTrends.medianPrice);
+            document.getElementById('daysOnMarket').textContent = `${propertyData.marketTrends.daysOnMarket} days`;
+
+        } catch (error) {
+            console.error('Error updating property details:', error);
+            results.innerHTML = `
+                <h3>Property Details</h3>
+                <div class="error-message">
+                    <p>Sorry, we couldn't find the property details.</p>
+                    <p class="error-details">${error.message}</p>
+                </div>
+            `;
+        }
+    });
+    </script>
+
+    <script>
+    function copyCode() {
+        const codeContent = document.querySelector('.code-content').textContent;
+        navigator.clipboard.writeText(codeContent).then(() => {
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+            }, 2000);
+        });
+    }
+    </script>
+
+    <style>
+    .code-showcase {
+        margin: 60px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 20px;
+        background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%);
+        border-radius: 20px;
+        border: 1px solid rgba(29, 185, 84, 0.15);
+    }
+
+    .code-container {
+        background: linear-gradient(165deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid rgba(29, 185, 84, 0.1);
+        margin-top: 20px;
+    }
+
+    .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: rgba(29, 185, 84, 0.1);
+        border-bottom: 1px solid rgba(29, 185, 84, 0.15);
+    }
+
+    .file-name {
+        color: var(--secondary);
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9em;
+    }
+
+    .code-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .copy-btn {
+        padding: 5px 10px;
+        background: rgba(29, 185, 84, 0.2);
+        border: 1px solid rgba(29, 185, 84, 0.3);
+        border-radius: 5px;
+        color: var(--secondary);
+        cursor: pointer;
+        font-size: 0.8em;
+        transition: all 0.3s ease;
+    }
+
+    .copy-btn:hover {
+        background: rgba(29, 185, 84, 0.3);
+    }
+
+    .code-content {
+        padding: 20px;
+        margin: 0;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9em;
+        line-height: 1.5;
+        overflow-x: auto;
+    }
+
+    .code-content .keyword { color: #ff79c6; }
+    .code-content .string { color: #f1fa8c; }
+    .code-content .comment { color: #6272a4; }
+    .code-content .type { color: #8be9fd; }
+    .code-content .custom-type { color: #50fa7b; }
+    .code-content .variable { color: #f8f8f2; }
+    .code-content .number { color: #bd93f9; }
+    .code-content .function { color: #50fa7b; }
+
+    .code-explanation {
+        padding: 40px;
+        margin-top: 20px;
+        background: linear-gradient(165deg, rgba(25, 25, 25, 0.7) 0%, rgba(15, 15, 15, 0.8) 100%);
+        border-radius: 15px;
+        border: 1px solid rgba(29, 185, 84, 0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-explanation h3 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+        background: linear-gradient(45deg, var(--secondary) 0%, #88f8b6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: left;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .code-explanation h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--secondary), transparent);
+        border-radius: 2px;
+    }
+
+    .explanation-item {
+        margin-bottom: 35px;
+        padding: 20px;
+        background: rgba(29, 185, 84, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(29, 185, 84, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .explanation-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .explanation-item:hover {
+        transform: translateY(-2px);
+        background: rgba(29, 185, 84, 0.08);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .explanation-item h4 {
+        color: var(--secondary);
+        margin-bottom: 12px;
+        font-size: 1.2em;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .explanation-item h4::before {
+        content: '→';
+        color: var(--secondary);
+        font-size: 1.1em;
+        opacity: 0.8;
+    }
+
+    .explanation-item p {
+        color: var(--text);
+        line-height: 1.6;
+        font-size: 0.95em;
+        opacity: 0.9;
+    }
+
+    /* Add smooth hover effect for code container */
+    .code-container {
+        transition: all 0.3s ease;
+    }
+
+    .code-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+
+    <script>
+    // Navigation highlight functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a:not(.contact-btn):not([href*="marketplace"]):not([href*="wallet"])');
+        
+        function highlightNavigation() {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            let lastVisibleSection = null;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    lastVisibleSection = sectionId;
+                    // If we're in the contact section, keep benefits highlighted
+                    if (sectionId === 'contact') {
+                        lastVisibleSection = 'benefits';
+                    }
+                }
+            });
+            
+            // If we're past all sections, keep benefits highlighted
+            if (scrollPosition >= document.documentElement.scrollHeight - window.innerHeight) {
+                lastVisibleSection = 'benefits';
+            }
+            
+            // Update active state for navigation links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').replace('/#', '');
+                if (lastVisibleSection && href === lastVisibleSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightNavigation);
+        highlightNavigation(); // Run on initial load
+    });
+    </script>
+
+    <style>
+    /* Navigation active state */
+    .nav-link.active {
+        color: var(--secondary);
+    }
+    
+    .nav-page-link.active {
+        background: var(--secondary);
+        color: var(--primary);
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all stats
+        const allStats = Array.from(document.querySelectorAll('.hero-stat'));
+        
+        // First hide all stats
+        allStats.forEach(stat => {
+            stat.classList.remove('active');
+            stat.style.display = 'none';
+        });
+        
+        // Shuffle the stats array
+        const shuffledStats = [...allStats].sort(() => Math.random() - 0.5);
+        
+        // Show first 4 random stats
+        shuffledStats.slice(0, 4).forEach(stat => {
+            stat.classList.add('active');
+            stat.style.display = 'flex';
+        });
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Add click handler for external page links
+        const externalLinks = document.querySelectorAll('.nav-links a[href*="marketplace"], .nav-links a[href*="wallet"]');
+        externalLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                window.location.href = link.getAttribute('href');
+            });
+        });
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Smooth scrolling for dropdown links
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html> 
