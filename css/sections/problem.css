@@ -16,7 +16,7 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(245, 245, 247, 0.36) 50%,
         transparent 100%
     );
     opacity: 1;
@@ -33,7 +33,7 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.1) 50%,
+        rgba(245, 245, 247, 0.12) 50%,
         transparent 100%
     );
     filter: blur(2px);
@@ -46,16 +46,16 @@
     align-items: start;
     margin: 40px 0;
     padding: 40px;
-    background: var(--dark-gray);
+    background: var(--surface);
     border-radius: 15px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid var(--border-soft);
 }
 
 .crisis-text {
     padding: 30px;
-    background: var(--dark-gray);
+    background: var(--surface);
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid var(--border-soft);
 }
 
 .crisis-text p {
@@ -67,15 +67,15 @@
 }
 
 .crisis-text .emphasis {
-    color: var(--secondary);
+    color: var(--text);
     font-size: 1.3em;
     font-weight: 500;
     line-height: 1.6;
     margin: 30px 0;
     padding: 20px;
-    background: var(--dark-gray);
+    background: var(--surface-strong);
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.2);
+    border: 1px solid var(--border-strong);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -86,14 +86,14 @@
 }
 
 .crisis-card {
-    background: var(--dark-gray);
+    background: var(--surface);
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.2);
+    border: 1px solid var(--border-soft);
 }
 
 .crisis-card h3 {
-    color: var(--secondary);
+    color: var(--text);
     margin-bottom: 20px;
 }
 
@@ -111,7 +111,7 @@
 
 .crisis-card ul li:before {
     content: "•";
-    color: var(--secondary);
+    color: var(--text);
     position: absolute;
     left: 0;
 }

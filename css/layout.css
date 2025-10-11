@@ -15,15 +15,12 @@ section {
 /* Unified Section Header Styling */
 section h2,
 .contact h2 {
-    color: var(--secondary);
+    color: var(--text);
     text-align: left;
     font-size: 3.2em;
     margin: 0 0 50px 120px;
     font-weight: 800;
-    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: none;
     text-transform: capitalize !important;
     letter-spacing: 0.5px;
     position: relative;
@@ -48,10 +45,8 @@ section h2::after,
     margin: 0 0 50px 120px !important;
     text-transform: capitalize !important;
     font-size: 3.2em !important;
-    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--text) !important;
 }
 
 /* Container spacing adjustments */
@@ -73,7 +68,7 @@ section h2::after,
         rgba(18, 18, 18, 0.95) 100%
     );
     border-radius: 20px;
-    border: 1px solid rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(245, 245, 247, 0.18);
 }
 
 /* Specific adjustments for contact form */
@@ -85,7 +80,7 @@ section h2::after,
         rgba(18, 18, 18, 0.95) 100%
     );
     border-radius: 20px;
-    border: 1px solid rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(245, 245, 247, 0.18);
 }
 
 /* Remove any conflicting margins */
@@ -132,7 +127,7 @@ section:not(:first-of-type)::before {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(245, 245, 247, 0.36) 50%,
         transparent 100%
     );
     opacity: 0.5;
@@ -150,7 +145,7 @@ section:not(:first-of-type)::after {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.1) 50%,
+        rgba(245, 245, 247, 0.12) 50%,
         transparent 100%
     );
     filter: blur(2px);
@@ -168,7 +163,7 @@ section:not(:first-of-type)::after {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(245, 245, 247, 0.36) 50%,
         transparent 100%
     );
     opacity: 0.5;

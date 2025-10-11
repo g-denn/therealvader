@@ -1,16 +1,16 @@
 /* Card Base Styles */
 .card {
-    background: var(--dark-gray);
+    background: var(--surface);
     border-radius: 15px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid var(--border-soft);
     padding: 30px;
     transition: all 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: rgba(29, 185, 84, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--border-strong);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 /* Card Header */
@@ -19,7 +19,7 @@
 }
 
 .card-header h3 {
-    color: var(--secondary);
+    color: var(--text);
     font-size: 1.4em;
     margin-bottom: 10px;
 }

@@ -2,8 +2,8 @@
     position: relative;
     padding: 140px 0 100px;
     overflow: hidden;
-    background: radial-gradient(circle at 10% 20%, rgba(29, 185, 84, 0.35), transparent 55%),
-                radial-gradient(circle at 80% 0%, rgba(29, 185, 84, 0.25), transparent 60%),
+    background: radial-gradient(circle at 10% 20%, rgba(245, 245, 247, 0.42), transparent 55%),
+                radial-gradient(circle at 80% 0%, rgba(245, 245, 247, 0.3), transparent 60%),
                 linear-gradient(160deg, rgba(18, 18, 18, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
 }
 
@@ -20,7 +20,7 @@
 .portfolio-hero::before {
     width: 420px;
     height: 420px;
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(245, 245, 247, 0.24);
     top: -160px;
     left: -80px;
 }
@@ -28,7 +28,7 @@
 .portfolio-hero::after {
     width: 320px;
     height: 320px;
-    background: rgba(29, 185, 84, 0.15);
+    background: rgba(245, 245, 247, 0.18);
     bottom: -120px;
     right: -60px;
 }
@@ -82,7 +82,7 @@
 .metric-card {
     padding: 26px;
     border-radius: 20px;
-    background: linear-gradient(160deg, rgba(29, 185, 84, 0.14), rgba(18, 18, 18, 0.65));
+    background: linear-gradient(160deg, rgba(245, 245, 247, 0.16), rgba(18, 18, 18, 0.65));
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
     text-align: left;
@@ -111,7 +111,7 @@
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.85rem;
-    background: rgba(29, 185, 84, 0.15);
+    background: rgba(245, 245, 247, 0.18);
     color: #45f095;
 }
 
@@ -186,7 +186,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(140deg, rgba(29, 185, 84, 0.08), transparent 60%);
+    background: linear-gradient(140deg, rgba(245, 245, 247, 0.08), transparent 60%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -202,8 +202,8 @@
 
 .portfolio-actions {
     padding: 120px 0;
-    background: radial-gradient(circle at 15% 20%, rgba(29, 185, 84, 0.12), transparent 55%),
-                radial-gradient(circle at 85% 30%, rgba(29, 185, 84, 0.08), transparent 60%),
+    background: radial-gradient(circle at 15% 20%, rgba(245, 245, 247, 0.14), transparent 55%),
+                radial-gradient(circle at 85% 30%, rgba(245, 245, 247, 0.08), transparent 60%),
                 linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
 }
 
@@ -237,7 +237,7 @@
     padding: 24px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(29, 185, 84, 0.18);
+    border: 1px solid rgba(245, 245, 247, 0.22);
     grid-area: summary;
     align-self: stretch;
 }
@@ -268,14 +268,14 @@
     letter-spacing: 0.1em;
     background: linear-gradient(135deg, var(--secondary) 0%, #4beb8a 100%);
     color: #0b0b0b;
-    box-shadow: 0 24px 45px rgba(29, 185, 84, 0.35);
+    box-shadow: 0 24px 45px rgba(245, 245, 247, 0.42);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sell-cta__button:hover,
 .sell-cta__button:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 30px 55px rgba(29, 185, 84, 0.45);
+    box-shadow: 0 30px 55px rgba(245, 245, 247, 0.5);
 }
 
 .sell-modal[hidden] {
@@ -378,7 +378,7 @@
     border-radius: 16px;
     padding: 14px 16px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(29, 185, 84, 0.18);
+    border: 1px solid rgba(245, 245, 247, 0.22);
     color: var(--text);
 }
 
@@ -387,7 +387,7 @@
 .sell-auto__cap input:focus {
     outline: none;
     border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.25);
+    box-shadow: 0 0 0 3px rgba(245, 245, 247, 0.3);
 }
 
 .sell-form__toggle {
@@ -426,7 +426,7 @@
 .sell-form__toggle-option:hover,
 .sell-form__toggle-option:focus-within,
 .sell-form__toggle-option.is-selected {
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(245, 245, 247, 0.24);
 }
 
 .sell-form__fields {
@@ -479,7 +479,7 @@
     padding: 18px;
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(29, 185, 84, 0.16);
+    border: 1px solid rgba(245, 245, 247, 0.2);
 }
 
 .sell-summary__label {
@@ -540,14 +540,14 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     cursor: pointer;
-    box-shadow: 0 20px 40px rgba(29, 185, 84, 0.35);
+    box-shadow: 0 20px 40px rgba(245, 245, 247, 0.42);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sell-form__submit:hover,
 .sell-form__submit:focus-visible {
     transform: translateY(-1px);
-    box-shadow: 0 26px 50px rgba(29, 185, 84, 0.45);
+    box-shadow: 0 26px 50px rgba(245, 245, 247, 0.5);
 }
 
 body.sell-modal-open {
@@ -596,7 +596,7 @@ body.sell-modal-open {
     gap: 6px;
     padding: 6px 14px;
     border-radius: 999px;
-    background: rgba(29, 185, 84, 0.15);
+    background: rgba(245, 245, 247, 0.18);
     color: #4bf39a;
     font-size: 0.82rem;
     font-weight: 600;
@@ -636,12 +636,12 @@ body.sell-modal-open {
 .action-btn.primary {
     background: linear-gradient(120deg, var(--secondary), #3eef9f);
     color: #041109;
-    box-shadow: 0 14px 30px rgba(29, 185, 84, 0.35);
+    box-shadow: 0 14px 30px rgba(245, 245, 247, 0.42);
 }
 
 .action-btn.primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 18px 40px rgba(29, 185, 84, 0.4);
+    box-shadow: 0 18px 40px rgba(245, 245, 247, 0.45);
 }
 
 .action-btn.ghost {
@@ -776,7 +776,7 @@ body.sell-modal-open {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, rgba(29, 185, 84, 0.4), transparent);
+    background: linear-gradient(180deg, rgba(245, 245, 247, 0.45), transparent);
 }
 
 .history-item {
@@ -797,8 +797,8 @@ body.sell-modal-open {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    border: 3px solid rgba(29, 185, 84, 0.55);
-    background: rgba(29, 185, 84, 0.2);
+    border: 3px solid rgba(116, 240, 188, 0.45);
+    background: rgba(245, 245, 247, 0.24);
 }
 
 .history-date {
@@ -829,7 +829,7 @@ body.sell-modal-open {
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 999px;
-    background: rgba(29, 185, 84, 0.12);
+    background: rgba(245, 245, 247, 0.14);
     color: #45f095;
 }
 
@@ -863,7 +863,7 @@ body.sell-modal-open {
     width: 70px;
     height: 70px;
     border-radius: 18px;
-    background: linear-gradient(160deg, rgba(29, 185, 84, 0.25), rgba(29, 185, 84, 0.08));
+    background: linear-gradient(160deg, rgba(245, 245, 247, 0.3), rgba(245, 245, 247, 0.08));
     text-transform: uppercase;
     font-weight: 700;
     color: var(--text);

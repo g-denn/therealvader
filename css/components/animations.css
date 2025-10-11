@@ -35,7 +35,6 @@ body.animations-enabled .animate-on-scroll.is-visible {
 
     body.animations-enabled .hero h1 {
         animation: none;
-        background-position: 50% 50%;
     }
 }
 
@@ -48,7 +47,7 @@ body.animations-enabled .animate-on-scroll.is-visible {
     content: "";
     position: absolute;
     inset: -20%;
-    background: radial-gradient(circle at center, rgba(29, 185, 84, 0.18), transparent 70%);
+    background: radial-gradient(circle at center, rgba(245, 245, 247, 0.22), transparent 70%);
     opacity: 0;
     filter: blur(18px);
     z-index: -1;
@@ -60,8 +59,7 @@ body.animations-enabled .text-glow.is-visible::after {
 }
 
 body.animations-enabled .hero h1 {
-    background-size: 240% auto;
-    animation: gradientFlow 14s ease-in-out infinite alternate;
+    animation: fadeUp var(--animation-duration-base) ease forwards;
 }
 
 @keyframes fadeUp {
