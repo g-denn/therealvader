@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/components/animations.css">
     <script src="js/code-showcase.js" defer></script>
     <script src="js/animations.js" defer></script>
+    <script src="js/common.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Make sure this is in the head section -->
     <link rel="stylesheet" href="css/components/chat.css">
@@ -39,16 +40,16 @@
             </a>
             <div class="nav-links">
                 <div class="nav-item">
-                    <a href="#problem" class="nav-link">About</a>
+                    <a href="/#problem" class="nav-link">About</a>
                     <div class="nav-dropdown">
-                        <a href="#problem" class="scroll-link">The Problem</a>
-                        <a href="#benefits" class="scroll-link">Benefits</a>
+                        <a href="/#problem" class="scroll-link">The Problem</a>
+                        <a href="/#benefits" class="scroll-link">Benefits</a>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <a href="#tokenization" class="nav-link">How It Works</a>
+                    <a href="/#tokenization" class="nav-link">How It Works</a>
                     <div class="nav-dropdown">
-                        <a href="#tokenization" class="scroll-link">Tokenization</a>
+                        <a href="/#tokenization" class="scroll-link">Tokenization</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -60,7 +61,7 @@
                 </div>
                 <a href="/investments.html" class="nav-page">Investments</a>
                 <a href="/wallet.html" class="nav-page">Wallet</a>
-                <a href="#contact" class="nav-page contact-btn">Contact Us</a>
+                <a href="/#contact" class="nav-page contact-btn">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -635,14 +636,14 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#problem">The Problem</a></li>
-                        <li><a href="#tokenization">How It Works</a></li>
-                        <li><a href="#solution">Our Solution</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="/#problem">The Problem</a></li>
+                        <li><a href="/#tokenization">How It Works</a></li>
+                        <li><a href="/#solution">Our Solution</a></li>
+                        <li><a href="/#benefits">Benefits</a></li>
                         <li><a href="/marketplace.html">Properties</a></li>
                         <li><a href="/investments.html">Investments</a></li>
                         <li><a href="/wallet.html">Wallet</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -1809,27 +1810,5 @@ What would you like to know more about?`;
     });
     </script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Smooth scrolling for dropdown links
-        document.querySelectorAll('.scroll-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    const navHeight = document.querySelector('.nav').offsetHeight;
-                    const targetPosition = targetSection.offsetTop - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-    </script>
 </body>
-</html> 
+</html>
