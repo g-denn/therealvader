@@ -227,7 +227,8 @@
 }
 
 .sell-cta__content h2 {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
+    white-space: normal;
 }
 
 .sell-cta__summary {
