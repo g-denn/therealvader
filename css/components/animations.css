@@ -1,0 +1,96 @@
+:root {
+    --animation-duration-base: 0.75s;
+    --animation-easing-base: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body:not(.animations-enabled) .animate-on-load,
+body:not(.animations-enabled) .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+}
+
+body.animations-enabled .animate-on-load,
+body.animations-enabled .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+}
+
+body.animations-enabled .animate-on-load.is-visible,
+body.animations-enabled .animate-on-scroll.is-visible {
+    animation: fadeUp var(--animation-duration, var(--animation-duration-base)) var(--animation-easing, var(--animation-easing-base)) forwards;
+}
+
+body.animations-enabled .animate-on-load.is-visible,
+body.animations-enabled .animate-on-scroll.is-visible {
+    animation-delay: var(--animation-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.animations-enabled .animate-on-load,
+    body.animations-enabled .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    body.animations-enabled .hero h1 {
+        animation: none;
+        background-position: 50% 50%;
+    }
+}
+
+.text-glow {
+    position: relative;
+    isolation: isolate;
+}
+
+.text-glow::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle at center, rgba(29, 185, 84, 0.18), transparent 70%);
+    opacity: 0;
+    filter: blur(18px);
+    z-index: -1;
+    transition: opacity 0.6s ease;
+}
+
+body.animations-enabled .text-glow.is-visible::after {
+    opacity: 1;
+}
+
+body.animations-enabled .hero h1 {
+    background-size: 240% auto;
+    animation: gradientFlow 14s ease-in-out infinite alternate;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Utility delays */
+.delay-1 { --animation-delay: 0.12s; }
+.delay-2 { --animation-delay: 0.24s; }
+.delay-3 { --animation-delay: 0.36s; }
+.delay-4 { --animation-delay: 0.48s; }
+.delay-5 { --animation-delay: 0.6s; }
+.delay-6 { --animation-delay: 0.72s; }

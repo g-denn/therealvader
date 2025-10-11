@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="css/sections/benefits.css">
     <link rel="stylesheet" href="css/components/property-lookup.css">
     <link rel="stylesheet" href="css/components/code-showcase.css">
+    <link rel="stylesheet" href="css/components/animations.css">
     <script src="js/code-showcase.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/common.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Make sure this is in the head section -->
     <link rel="stylesheet" href="css/components/chat.css">
@@ -37,16 +40,16 @@
             </a>
             <div class="nav-links">
                 <div class="nav-item">
-                    <a href="#problem" class="nav-link">About</a>
+                    <a href="/#problem" class="nav-link scroll-link">About</a>
                     <div class="nav-dropdown">
-                        <a href="#problem" class="scroll-link">The Problem</a>
-                        <a href="#benefits" class="scroll-link">Benefits</a>
+                        <a href="/#problem" class="scroll-link">The Problem</a>
+                        <a href="/#benefits" class="scroll-link">Benefits</a>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <a href="#tokenization" class="nav-link">How It Works</a>
+                    <a href="/#tokenization" class="nav-link scroll-link">How It Works</a>
                     <div class="nav-dropdown">
-                        <a href="#tokenization" class="scroll-link">Tokenization</a>
+                        <a href="/#tokenization" class="scroll-link">Tokenization</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -58,7 +61,7 @@
                 </div>
                 <a href="/investments.html" class="nav-page">Investments</a>
                 <a href="/wallet.html" class="nav-page">Wallet</a>
-                <a href="#contact" class="nav-page contact-btn">Contact Us</a>
+                <a href="/#contact" class="nav-page contact-btn">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -71,9 +74,11 @@
         <div class="floating-orb orb-5"></div>
         <div class="floating-orb orb-6"></div>
         <div class="container">
-            <h1>
-                <span>Revolutionizing Real Estate</span>
-                <span>Through Blockchain Technology</span>
+            <h1 class="hero-headline">
+                <a href="/property-details.html?id=lacosta-south-quay-4br" class="hero-headline-link" aria-label="Explore detailed information about our featured tokenized property">
+                    <span class="hero-headline-line" style="--line-delay: 0s;">Revolutionizing Real Estate</span>
+                    <span class="hero-headline-line" style="--line-delay: 0.18s;">Through Blockchain Technology</span>
+                </a>
             </h1>
             <p><style></style>Rebuilding communities and protecting assets in an era of unprecedented challenges</p>
 
@@ -633,14 +638,14 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#problem">The Problem</a></li>
-                        <li><a href="#tokenization">How It Works</a></li>
-                        <li><a href="#solution">Our Solution</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="/#problem">The Problem</a></li>
+                        <li><a href="/#tokenization">How It Works</a></li>
+                        <li><a href="/#tokenization">Our Solution</a></li>
+                        <li><a href="/#benefits">Benefits</a></li>
                         <li><a href="/marketplace.html">Properties</a></li>
                         <li><a href="/investments.html">Investments</a></li>
                         <li><a href="/wallet.html">Wallet</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -668,7 +673,7 @@
                 </div>
                 <div class="ai-info">
                     <h3>TokenAI</h3>
-                    <span class="ai-status">Insurance Specialist</span>
+                    <span class="ai-status">Investment Specialist</span>
                 </div>
             </div>
             <button id="closeChat" class="close-btn">&times;</button>

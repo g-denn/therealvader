@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiEstate - Property Detail</title>
+    <link rel="icon" type="image/png" href="/images/digiestate-logo.png">
+    <link rel="shortcut icon" type="image/png" href="/images/digiestate-logo.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/chat.css">
+    <link rel="stylesheet" href="css/sections/property-details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/common.js" defer></script>
+    <script src="js/property-detail.js" defer></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="/" class="nav-brand">
+                <img src="/images/digiestate-logo.png" alt="DigiEstate Logo" class="logo">
+                <span class="nav-logo">DigiEstate</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="/#problem" class="nav-link scroll-link">About</a>
+                    <div class="nav-dropdown">
+                        <a href="/#problem" class="scroll-link">The Problem</a>
+                        <a href="/#benefits" class="scroll-link">Benefits</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/#tokenization" class="nav-link scroll-link">How It Works</a>
+                    <div class="nav-dropdown">
+                        <a href="/#tokenization" class="scroll-link">Tokenization</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/marketplace.html" class="nav-link">Properties</a>
+                    <div class="nav-dropdown">
+                        <a href="/marketplace.html">Browse Properties</a>
+                        <a href="/marketplace.html#lookup">Property Lookup</a>
+                    </div>
+                </div>
+                <a href="/investments.html" class="nav-page">Investments</a>
+                <a href="/wallet.html" class="nav-page">Wallet</a>
+                <a href="/#contact" class="nav-page contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="property-detail">
+        <div class="container">
+            <a href="/marketplace.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to marketplace</a>
+
+            <div class="detail-header">
+                <div class="header-info">
+                    <span class="status-badge available" id="detailStatus">Available</span>
+                    <h1 id="detailName">Property Name</h1>
+                    <p class="property-location" id="detailLocation"><i class="fas fa-map-marker-alt"></i> <span>Location</span></p>
+                    <div class="key-metrics" id="detailMetrics">
+                        <div class="key-metric">
+                            <span>Beds</span>
+                            <strong id="metricBeds">0</strong>
+                        </div>
+                        <div class="key-metric">
+                            <span>Baths</span>
+                            <strong id="metricBaths">0</strong>
+                        </div>
+                        <div class="key-metric">
+                            <span>Size</span>
+                            <strong id="metricSize">0 sqft</strong>
+                        </div>
+                        <div class="key-metric">
+                            <span>Token Price</span>
+                            <strong id="metricTokenPrice">RM0</strong>
+                        </div>
+                        <div class="key-metric">
+                            <span>Property Value</span>
+                            <strong id="metricPropertyValue">RM0</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-visual">
+                    <img src="images/house_pictures/pexels-binyaminmellish-106399.jpg" alt="Property" id="detailImage">
+                    <div class="token-progress">
+                        <div class="label-row">
+                            <span>Tokenization progress</span>
+                            <strong id="tokenizationPercent">0% Tokenized</strong>
+                        </div>
+                        <div class="progress-bar">
+                            <span id="tokenizationBar" style="width: 0%"></span>
+                        </div>
+                        <div class="label-row">
+                            <span>Total tokens issued</span>
+                            <strong id="totalTokens">0 tokens</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-grid">
+                <section class="detail-card overview-card">
+                    <h2>Basic Property Overview</h2>
+                    <div class="overview-content">
+                        <div class="overview-list">
+                            <div class="overview-item">
+                                <span class="label">Full Address</span>
+                                <span class="value" id="detailAddress">-</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Property Type</span>
+                                <span class="value" id="detailPropertyType">-</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Year Built</span>
+                                <span class="value" id="detailYearBuilt">-</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Developer</span>
+                                <span class="value" id="detailDeveloper">-</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Ownership</span>
+                                <span class="value" id="detailOwnership">-</span>
+                            </div>
+                            <div class="overview-item">
+                                <span class="label">Tenancy Status</span>
+                                <span class="value" id="detailTenancy">-</span>
+                            </div>
+                        </div>
+                        <div class="map-wrapper">
+                            <iframe id="detailMap" src="https://maps.google.com/maps?q=Sunway%20City%2C%20Selangor&output=embed" loading="lazy" allowfullscreen aria-label="Property location map"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="detail-card tenant-quality">
+                    <h2>Tenant &amp; Credit Quality</h2>
+                    <div class="tenant-grid">
+                        <div class="tenant-card">
+                            <span class="label">Tenant Type</span>
+                            <span class="value" id="tenantType">-</span>
+                        </div>
+                        <div class="tenant-card">
+                            <span class="label">Monthly Rent</span>
+                            <span class="value" id="tenantRent">-</span>
+                        </div>
+                        <div class="tenant-card">
+                            <span class="label">Lease Remaining</span>
+                            <span class="value" id="tenantLease">-</span>
+                        </div>
+                        <div class="tenant-card">
+                            <span class="label">Tenant Credit Score</span>
+                            <span class="value" id="tenantCreditScore">-</span>
+                        </div>
+                        <div class="tenant-card">
+                            <span class="label">Payment Consistency</span>
+                            <span class="value" id="tenantPayment">-</span>
+                        </div>
+                        <div class="tenant-card">
+                            <span class="label">Vacancy Risk</span>
+                            <span class="value" id="tenantVacancy">-</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-callout">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <p id="vacancySummary"><strong>Low vacancy outlook.</strong> Avg 95% occupancy in surrounding developments keeps tenant rollover risk minimal.</p>
+                    </div>
+                </section>
+
+                <section class="detail-card liquidity-card">
+                    <h2>Liquidity &amp; Exit Outlook</h2>
+                    <div class="liquidity-grid">
+                        <div class="liquidity-item">
+                            <span class="label">Secondary Demand</span>
+                            <span class="value" id="liquidityDemand">-</span>
+                        </div>
+                        <div class="liquidity-item">
+                            <span class="label">Average Trade Spread</span>
+                            <span class="value" id="liquiditySpread">-</span>
+                        </div>
+                        <div class="liquidity-item">
+                            <span class="label">Average Sale Time</span>
+                            <span class="value" id="liquiditySaleTime">-</span>
+                        </div>
+                        <div class="liquidity-item">
+                            <span class="label">Active Token Holders</span>
+                            <span class="value" id="liquidityTokenHolders">-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="detail-card financial-card">
+                    <h2>Financial Breakdown</h2>
+                    <div class="financial-grid">
+                        <div class="financial-item">
+                            <span class="label">Monthly Rent</span>
+                            <span class="value" id="financialRent">-</span>
+                        </div>
+                        <div class="financial-item">
+                            <span class="label">Maintenance Fees</span>
+                            <span class="value" id="financialMaintenance">-</span>
+                        </div>
+                        <div class="financial-item">
+                            <span class="label">Insurance &amp; Taxes</span>
+                            <span class="value" id="financialInsurance">-</span>
+                        </div>
+                        <div class="financial-item">
+                            <span class="label">Management Fee</span>
+                            <span class="value" id="financialManagement">-</span>
+                        </div>
+                        <div class="financial-item">
+                            <span class="label">Reserve Fund</span>
+                            <span class="value" id="financialReserve">-</span>
+                        </div>
+                        <div class="financial-item">
+                            <span class="label">Other Expenses</span>
+                            <span class="value" id="financialOther">-</span>
+                        </div>
+                    </div>
+                    <div class="financial-highlight">
+                        <strong id="financialNetIncome">-</strong>
+                        <p id="financialNetSummary">Net distributable income per month after fees and reserves.</p>
+                        <p id="financialPerToken">-</p>
+                    </div>
+                    <div class="yield-calculator">
+                        <label for="investmentSlider">Yield calculator</label>
+                        <input type="range" id="investmentSlider" min="100" max="50000" step="100" value="5000">
+                        <div class="yield-output">
+                            <div class="output-card">
+                                <span class="label">Your investment</span>
+                                <span class="value" id="investmentAmount">RM 5,000</span>
+                            </div>
+                            <div class="output-card">
+                                <span class="label">Estimated monthly income</span>
+                                <span class="value" id="estimatedIncome">RM 0.00</span>
+                            </div>
+                            <div class="output-card">
+                                <span class="label">Tokens purchased</span>
+                                <span class="value" id="tokensPurchased">0</span>
+                            </div>
+                        </div>
+                        <p class="yield-note" id="yieldNote">Projected returns update as you adjust your investment amount.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/digiestate-logo.png" alt="DigiEstate Logo">
+                        <span>DigiEstate</span>
+                    </div>
+                    <p>Revolutionizing real estate through blockchain technology and property tokenization. Making property ownership accessible, transparent, and community-driven.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/#problem" class="nav-link">The Problem</a></li>
+                        <li><a href="/#tokenization" class="nav-link">How It Works</a></li>
+                        <li><a href="/#tokenization" class="nav-link">Our Solution</a></li>
+                        <li><a href="/#benefits" class="nav-link">Benefits</a></li>
+                        <li><a href="marketplace.html" class="nav-link">Properties</a></li>
+                        <li><a href="investments.html" class="nav-link">Investments</a></li>
+                        <li><a href="wallet.html" class="nav-link">Wallet</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@digiestate.com</p>
+                    <p>Support: 24/7 Available</p>
+                    <p>Location: Kuala Lumpur, Malaysia</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 DigiEstate. All rights reserved.</p>
+                <p class="disclaimer">Operating under applicable securities regulations.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

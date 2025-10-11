@@ -1,0 +1,543 @@
+(function () {
+    const safeParse = (value) => {
+        if (!value) {
+            return null;
+        }
+
+        try {
+            return JSON.parse(value);
+        } catch (error) {
+            console.warn('Unable to parse stored property data:', error);
+            return null;
+        }
+    };
+
+    const formatCurrency = (value, fractionDigits = 0) => {
+        const numberValue = Number.isFinite(value) ? value : 0;
+        return new Intl.NumberFormat('ms-MY', {
+            style: 'currency',
+            currency: 'MYR',
+            minimumFractionDigits: fractionDigits,
+            maximumFractionDigits: fractionDigits
+        }).format(numberValue);
+    };
+
+    const formatCurrencyOrDash = (value, fractionDigits = 0) => (
+        Number.isFinite(value) ? formatCurrency(value, fractionDigits) : '-'
+    );
+
+    const createMapEmbedUrl = (address) => `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+
+    const finalizeFinancials = (property) => {
+        if (!property.detail) {
+            property.detail = {};
+        }
+
+        const propertyValue = Number.isFinite(property.propertyValue) ? property.propertyValue : 1000000;
+        const detail = property.detail;
+        const financials = detail.financials || {};
+        const monthlyRent = typeof financials.monthlyRent === 'number' ? financials.monthlyRent : Math.round(propertyValue * 0.004);
+        const managementFeeRate = typeof financials.managementFeeRate === 'number' ? financials.managementFeeRate : 0.05;
+        const maintenanceFees = typeof financials.maintenanceFees === 'number' ? financials.maintenanceFees : Math.round(monthlyRent * 0.18);
+        const insuranceTaxes = typeof financials.insuranceTaxes === 'number' ? financials.insuranceTaxes : Math.round(monthlyRent * 0.08);
+        const reserveFund = typeof financials.reserveFund === 'number' ? financials.reserveFund : Math.round(monthlyRent * 0.05);
+        const otherExpenses = typeof financials.otherExpenses === 'number' ? financials.otherExpenses : Math.round(monthlyRent * 0.04);
+
+        const managementFee = Math.round(monthlyRent * managementFeeRate);
+        const netMonthlyIncome = Math.max(0, Math.round(monthlyRent - maintenanceFees - insuranceTaxes - managementFee - reserveFund - otherExpenses));
+        const totalTokens = property.totalTokens || Math.max(1, Math.round(propertyValue / (property.tokenPrice || 100)));
+        const netIncomePerToken = totalTokens > 0 ? Number((netMonthlyIncome / totalTokens).toFixed(2)) : 0;
+
+        property.detail.financials = {
+            monthlyRent,
+            maintenanceFees,
+            insuranceTaxes,
+            managementFeeRate,
+            reserveFund,
+            otherExpenses,
+            managementFee,
+            netMonthlyIncome,
+            netIncomePerToken
+        };
+    };
+
+    const buildDetail = (property, overrides = {}) => {
+        const address = overrides.address || `${property.name}, ${property.location}`;
+        const tenantProfile = overrides.tenantProfile || {};
+        const liquidity = overrides.liquidity || {};
+
+        property.detail = {
+            address,
+            mapEmbedUrl: overrides.mapEmbedUrl || createMapEmbedUrl(address),
+            propertyType: overrides.propertyType || (property.category === 'commercial' ? 'Commercial Suite' : 'Residential Condominium'),
+            yearBuilt: overrides.yearBuilt || 2016,
+            developer: overrides.developer || 'Sunway Property',
+            ownership: overrides.ownership || 'Freehold',
+            tenancyStatus: overrides.tenancyStatus || (property.tokenization >= 50 ? 'Occupied' : 'Vacant'),
+            tenantProfile: {
+                type: tenantProfile.type || (property.category === 'commercial' ? 'Corporate' : 'Family'),
+                monthlyRent: tenantProfile.monthlyRent,
+                leaseRemaining: tenantProfile.leaseRemaining || '12 months',
+                creditScore: tenantProfile.creditScore || '730 / 850 (Good)',
+                paymentConsistency: tenantProfile.paymentConsistency || '12/12 months on time',
+                vacancyRisk: tenantProfile.vacancyRisk || {
+                    level: property.tokenization >= 60 ? 'Low' : 'Moderate',
+                    summary: property.tokenization >= 60 ? 'avg 95% occupancy in area' : 'avg 88% occupancy in area'
+                }
+            },
+            financials: overrides.financials || {},
+            liquidity: {
+                secondaryDemand: liquidity.secondaryDemand || '12 bids open',
+                averageSpread: liquidity.averageSpread || '±2%',
+                saleTime: liquidity.saleTime || '~3 days'
+            }
+        };
+
+        finalizeFinancials(property);
+    };
+
+    const fallbackCatalog = (() => {
+        const baseProperties = {
+            'lacosta-south-quay-4br': {
+                id: 'lacosta-south-quay-4br',
+                name: 'LaCosta @ Sunway South Quay',
+                category: 'residential',
+                location: 'Bandar Sunway, Selangor',
+                beds: 4,
+                baths: 3,
+                sqft: 1750,
+                propertyValue: 2400000,
+                tokenization: 72,
+                tokenPrice: 240,
+                image: 'pexels-binyaminmellish-106399.jpg',
+                detail: {
+                    address: 'LaCosta, Sunway South Quay, Bandar Sunway, Selangor',
+                    mapEmbedUrl: createMapEmbedUrl('LaCosta, Sunway South Quay, Bandar Sunway, Selangor'),
+                    propertyType: 'Residential Condominium',
+                    yearBuilt: 2016,
+                    developer: 'Sunway Property',
+                    ownership: 'Freehold',
+                    tenancyStatus: 'Occupied',
+                    tenantProfile: {
+                        type: 'Family',
+                        monthlyRent: 9000,
+                        leaseRemaining: '1 year 3 months',
+                        creditScore: '740 / 850 (Good)',
+                        paymentConsistency: '12/12 months on time',
+                        vacancyRisk: { level: 'Low', summary: 'avg 95% occupancy in Bandar Sunway' }
+                    },
+                    financials: {
+                        monthlyRent: 9000,
+                        maintenanceFees: 650,
+                        insuranceTaxes: 220,
+                        managementFeeRate: 0.05,
+                        reserveFund: 350,
+                        otherExpenses: 250
+                    },
+                    liquidity: {
+                        secondaryDemand: '12 bids open',
+                        averageSpread: '±2%',
+                        saleTime: '~3 days'
+                    }
+                }
+            },
+            'lacosta-south-quay-3br': {
+                id: 'lacosta-south-quay-3br',
+                name: 'LaCosta @ Sunway South Quay',
+                category: 'residential',
+                location: 'Bandar Sunway, Selangor',
+                beds: 3,
+                baths: 3,
+                sqft: 1620,
+                propertyValue: 2300000,
+                tokenization: 88,
+                tokenPrice: 230,
+                image: 'pexels-binyaminmellish-1396132.jpg',
+                detail: {
+                    address: 'LaCosta Tower B, Sunway South Quay, Bandar Sunway, Selangor',
+                    mapEmbedUrl: createMapEmbedUrl('LaCosta Tower B, Sunway South Quay, Bandar Sunway, Selangor'),
+                    propertyType: 'Residential Condominium',
+                    yearBuilt: 2016,
+                    developer: 'Sunway Property',
+                    ownership: 'Freehold',
+                    tenancyStatus: 'Occupied',
+                    tenantProfile: {
+                        type: 'Corporate',
+                        monthlyRent: 8200,
+                        leaseRemaining: '2 years 1 month',
+                        creditScore: '752 / 850 (Very Good)',
+                        paymentConsistency: '24/24 months on time',
+                        vacancyRisk: { level: 'Low', summary: 'avg 96% occupancy in Bandar Sunway' }
+                    },
+                    financials: {
+                        monthlyRent: 8200,
+                        maintenanceFees: 580,
+                        insuranceTaxes: 240,
+                        managementFeeRate: 0.05,
+                        reserveFund: 330,
+                        otherExpenses: 210
+                    },
+                    liquidity: {
+                        secondaryDemand: '15 bids open',
+                        averageSpread: '±1.8%',
+                        saleTime: '~2 days'
+                    }
+                }
+            },
+            'sunway-geolake-residences': {
+                id: 'sunway-geolake-residences',
+                name: 'Sunway GeoLake Residences',
+                category: 'residential',
+                location: 'Bandar Sunway, Selangor',
+                beds: 3,
+                baths: 2,
+                sqft: 1480,
+                propertyValue: 1950000,
+                tokenization: 64,
+                tokenPrice: 195,
+                image: 'pexels-expect-best-79873-323780.jpg',
+                detail: {
+                    address: 'Sunway GeoLake Residences, Bandar Sunway, Selangor',
+                    mapEmbedUrl: createMapEmbedUrl('Sunway GeoLake Residences, Bandar Sunway, Selangor'),
+                    propertyType: 'Residential Condominium',
+                    yearBuilt: 2019,
+                    developer: 'Sunway Property',
+                    ownership: 'Leasehold',
+                    tenancyStatus: 'Occupied',
+                    tenantProfile: {
+                        type: 'Family',
+                        monthlyRent: 7200,
+                        leaseRemaining: '11 months',
+                        creditScore: '728 / 850 (Good)',
+                        paymentConsistency: '11/12 months on time',
+                        vacancyRisk: { level: 'Low', summary: 'avg 93% occupancy in Bandar Sunway' }
+                    },
+                    financials: {
+                        monthlyRent: 7200,
+                        maintenanceFees: 520,
+                        insuranceTaxes: 210,
+                        managementFeeRate: 0.05,
+                        reserveFund: 300,
+                        otherExpenses: 180
+                    },
+                    liquidity: {
+                        secondaryDemand: '10 bids open',
+                        averageSpread: '±2.2%',
+                        saleTime: '~4 days'
+                    }
+                }
+            },
+            'sunway-geo-residence': {
+                id: 'sunway-geo-residence',
+                name: 'Sunway Geo Residence',
+                category: 'residential',
+                location: 'Bandar Sunway, Selangor',
+                beds: 3,
+                baths: 2,
+                sqft: 1385,
+                propertyValue: 1750000,
+                tokenization: 58,
+                tokenPrice: 175,
+                image: 'pexels-luis-yanez-57302-206172.jpg',
+                detail: {
+                    address: 'Sunway Geo Residence, Bandar Sunway, Selangor',
+                    mapEmbedUrl: createMapEmbedUrl('Sunway Geo Residence, Bandar Sunway, Selangor'),
+                    propertyType: 'Residential Condominium',
+                    yearBuilt: 2017,
+                    developer: 'Sunway Property',
+                    ownership: 'Leasehold',
+                    tenancyStatus: 'Occupied',
+                    tenantProfile: {
+                        type: 'Student',
+                        monthlyRent: 6500,
+                        leaseRemaining: '8 months',
+                        creditScore: '715 / 850 (Good)',
+                        paymentConsistency: '10/12 months on time',
+                        vacancyRisk: { level: 'Moderate', summary: 'avg 90% occupancy in Bandar Sunway' }
+                    },
+                    financials: {
+                        monthlyRent: 6500,
+                        maintenanceFees: 480,
+                        insuranceTaxes: 190,
+                        managementFeeRate: 0.05,
+                        reserveFund: 260,
+                        otherExpenses: 170
+                    },
+                    liquidity: {
+                        secondaryDemand: '9 bids open',
+                        averageSpread: '±2.4%',
+                        saleTime: '~5 days'
+                    }
+                }
+            }
+        };
+
+        Object.values(baseProperties).forEach(property => {
+            property.totalTokens = property.totalTokens || Math.max(1, Math.round(property.propertyValue / property.tokenPrice));
+            property.status = property.status || (property.tokenization === 100 ? 'Fully Tokenized' : 'Available');
+            finalizeFinancials(property);
+        });
+
+        return baseProperties;
+    })();
+
+    const ensureDetail = (property) => {
+        if (!property || typeof property !== 'object') {
+            return null;
+        }
+
+        const cloned = JSON.parse(JSON.stringify(property));
+        const fallbackValue = Number.isFinite(cloned.propertyValue) ? cloned.propertyValue : 1000000;
+        const computedTokenPrice = Number.isFinite(cloned.tokenPrice)
+            ? cloned.tokenPrice
+            : Math.round(fallbackValue / 10000) || 100;
+        const normalizedTokenPrice = Number.isFinite(computedTokenPrice) && computedTokenPrice > 0 ? computedTokenPrice : 100;
+        const computedTotalTokens = Number.isFinite(cloned.totalTokens)
+            ? cloned.totalTokens
+            : Math.round(fallbackValue / normalizedTokenPrice) || 1000;
+
+        cloned.category = cloned.category || 'residential';
+        cloned.tokenPrice = normalizedTokenPrice;
+        cloned.totalTokens = Math.max(1, computedTotalTokens);
+        cloned.status = cloned.status || (cloned.tokenization === 100 ? 'Fully Tokenized' : 'Available');
+        cloned.image = cloned.image || 'pexels-binyaminmellish-106399.jpg';
+
+        if (!cloned.detail) {
+            buildDetail(cloned);
+        } else {
+            const detail = { ...cloned.detail };
+            detail.address = detail.address || `${cloned.name}, ${cloned.location}`;
+            detail.mapEmbedUrl = detail.mapEmbedUrl || createMapEmbedUrl(detail.address);
+            detail.propertyType = detail.propertyType || (cloned.category === 'commercial' ? 'Commercial Suite' : 'Residential Condominium');
+            detail.yearBuilt = detail.yearBuilt || 2016;
+            detail.developer = detail.developer || 'Sunway Property';
+            detail.ownership = detail.ownership || 'Freehold';
+            detail.tenancyStatus = detail.tenancyStatus || (cloned.tokenization >= 50 ? 'Occupied' : 'Vacant');
+            detail.tenantProfile = detail.tenantProfile || {};
+            detail.tenantProfile.type = detail.tenantProfile.type || (cloned.category === 'commercial' ? 'Corporate' : 'Family');
+            detail.tenantProfile.leaseRemaining = detail.tenantProfile.leaseRemaining || '12 months';
+            detail.tenantProfile.creditScore = detail.tenantProfile.creditScore || '730 / 850 (Good)';
+            detail.tenantProfile.paymentConsistency = detail.tenantProfile.paymentConsistency || '12/12 months on time';
+            detail.tenantProfile.vacancyRisk = detail.tenantProfile.vacancyRisk || {
+                level: cloned.tokenization >= 60 ? 'Low' : 'Moderate',
+                summary: cloned.tokenization >= 60 ? 'avg 95% occupancy in area' : 'avg 88% occupancy in area'
+            };
+            detail.financials = detail.financials || {};
+            detail.liquidity = detail.liquidity || {};
+            detail.liquidity.secondaryDemand = detail.liquidity.secondaryDemand || '10 bids open';
+            detail.liquidity.averageSpread = detail.liquidity.averageSpread || '±2%';
+            detail.liquidity.saleTime = detail.liquidity.saleTime || '~3 days';
+
+            cloned.detail = detail;
+            finalizeFinancials(cloned);
+        }
+
+        return cloned;
+    };
+
+    const pickProperty = () => {
+        const params = new URLSearchParams(window.location.search);
+        const requestedId = params.get('id');
+        const selectedRaw = safeParse(sessionStorage.getItem('selectedProperty'));
+        const selectedProperty = selectedRaw ? ensureDetail(selectedRaw) : null;
+        const catalogRaw = safeParse(sessionStorage.getItem('propertyCatalog'));
+        const catalog = Array.isArray(catalogRaw)
+            ? catalogRaw.map(item => ensureDetail(item)).filter(Boolean)
+            : [];
+
+        const fromSelection = selectedProperty && selectedProperty.id ? selectedProperty : null;
+        if (fromSelection && (!requestedId || fromSelection.id === requestedId)) {
+            return fromSelection;
+        }
+
+        if (requestedId && catalog.length) {
+            const match = catalog.find(item => item.id === requestedId);
+            if (match) {
+                return match;
+            }
+        }
+
+        if (fromSelection) {
+            return fromSelection;
+        }
+
+        if (requestedId && fallbackCatalog[requestedId]) {
+            return ensureDetail(fallbackCatalog[requestedId]);
+        }
+
+        return ensureDetail(fallbackCatalog['lacosta-south-quay-4br']);
+    };
+
+    const updateText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.textContent = value;
+        }
+    };
+
+    const updateStatusBadge = (property) => {
+        const badge = document.getElementById('detailStatus');
+        if (!badge) {
+            return;
+        }
+
+        badge.textContent = property.status;
+        badge.classList.remove('available', 'tokenized');
+        badge.classList.add(property.status === 'Fully Tokenized' ? 'tokenized' : 'available');
+    };
+
+    const updateMetrics = (property) => {
+        updateText('#metricBeds', property.beds ?? '-');
+        updateText('#metricBaths', property.baths ?? '-');
+        updateText('#metricSize', property.sqft ? `${property.sqft.toLocaleString()} sqft` : '-');
+        updateText('#metricTokenPrice', formatCurrency(property.tokenPrice));
+        updateText('#metricPropertyValue', formatCurrency(property.propertyValue));
+    };
+
+    const updateHeaderVisuals = (property) => {
+        const image = document.getElementById('detailImage');
+        if (image) {
+            const imagePath = property.image && property.image.startsWith('http')
+                ? property.image
+                : `./images/house_pictures/${property.image}`;
+            image.src = imagePath;
+            image.alt = property.name;
+        }
+
+        updateText('#tokenizationPercent', `${property.tokenization}% Tokenized`);
+        updateText('#totalTokens', `${property.totalTokens.toLocaleString()} tokens`);
+
+        const progressBar = document.getElementById('tokenizationBar');
+        if (progressBar) {
+            progressBar.style.width = `${Math.min(100, Math.max(0, property.tokenization))}%`;
+        }
+    };
+
+    const updateOverview = (property) => {
+        const detail = property.detail;
+        updateText('#detailAddress', detail.address);
+        updateText('#detailPropertyType', detail.propertyType);
+        updateText('#detailYearBuilt', detail.yearBuilt ? detail.yearBuilt.toString() : '-');
+        updateText('#detailDeveloper', detail.developer || '-');
+        updateText('#detailOwnership', detail.ownership || '-');
+        updateText('#detailTenancy', detail.tenancyStatus || '-');
+
+        const locationSpan = document.querySelector('#detailLocation span');
+        if (locationSpan) {
+            locationSpan.textContent = property.location;
+        }
+
+        const mapFrame = document.getElementById('detailMap');
+        if (mapFrame && detail.mapEmbedUrl) {
+            mapFrame.src = detail.mapEmbedUrl;
+        }
+    };
+
+    const updateTenantSection = (property) => {
+        const profile = property.detail.tenantProfile || {};
+        updateText('#tenantType', profile.type || '-');
+        updateText('#tenantRent', formatCurrencyOrDash(profile.monthlyRent));
+        updateText('#tenantLease', profile.leaseRemaining || '-');
+        updateText('#tenantCreditScore', profile.creditScore || '-');
+        updateText('#tenantPayment', profile.paymentConsistency || '-');
+
+        const vacancyRisk = profile.vacancyRisk || { level: 'Moderate', summary: '' };
+        updateText('#tenantVacancy', `${vacancyRisk.level}`);
+        updateText('#vacancySummary', `${vacancyRisk.summary ? `${vacancyRisk.summary}.` : ''} ${property.status === 'Fully Tokenized' ? 'Existing holders receive pro-rata distributions.' : 'Current tenant underpins stable cash flow.'}`.trim());
+    };
+
+    const updateLiquiditySection = (property) => {
+        const liquidity = property.detail.liquidity || {};
+        updateText('#liquidityDemand', liquidity.secondaryDemand || '-');
+        updateText('#liquiditySpread', liquidity.averageSpread || '-');
+        updateText('#liquiditySaleTime', liquidity.saleTime || '-');
+
+        const estimatedHolders = Math.max(12, Math.round((property.tokenization / 100) * property.totalTokens / 80));
+        updateText('#liquidityTokenHolders', `${estimatedHolders.toLocaleString()} active`);
+    };
+
+    const updateFinancialSection = (property) => {
+        const financials = property.detail.financials || {};
+        updateText('#financialRent', formatCurrencyOrDash(financials.monthlyRent));
+        updateText('#financialMaintenance', formatCurrencyOrDash(financials.maintenanceFees));
+        updateText('#financialInsurance', formatCurrencyOrDash(financials.insuranceTaxes));
+        updateText('#financialManagement', formatCurrencyOrDash(financials.managementFee));
+        updateText('#financialReserve', formatCurrencyOrDash(financials.reserveFund));
+        updateText('#financialOther', formatCurrencyOrDash(financials.otherExpenses));
+
+        const managementLabel = document.querySelector('#financialManagement')?.previousElementSibling;
+        if (managementLabel) {
+            managementLabel.textContent = `Management Fee (${Math.round((financials.managementFeeRate || 0) * 100)}%)`;
+        }
+
+        const netMonthlyIncome = financials.netMonthlyIncome || 0;
+        updateText('#financialNetIncome', `${formatCurrency(netMonthlyIncome)} Net Monthly Income`);
+        updateText('#financialPerToken', `Net distributable per token: ${formatCurrency(financials.netIncomePerToken, 2)}`);
+
+        const annualNet = netMonthlyIncome * 12;
+        const yieldPercent = property.propertyValue > 0 ? ((annualNet / property.propertyValue) * 100) : 0;
+        updateText('#financialNetSummary', `Projected net yield of ${yieldPercent.toFixed(1)}% with reserves for upkeep and vacancies.`);
+
+        setupYieldCalculator(property, financials);
+    };
+
+    const setupYieldCalculator = (property, financials) => {
+        const slider = document.getElementById('investmentSlider');
+        if (!slider) {
+            return;
+        }
+
+        const minInvestment = Math.max(100, property.tokenPrice);
+        const maxInvestment = Math.min(property.propertyValue, minInvestment * 400);
+        slider.min = String(minInvestment);
+        slider.max = String(maxInvestment);
+        slider.step = String(property.tokenPrice);
+        slider.value = String(Math.min(maxInvestment, property.tokenPrice * 10));
+
+        const investmentAmountEl = document.getElementById('investmentAmount');
+        const estimatedIncomeEl = document.getElementById('estimatedIncome');
+        const tokensPurchasedEl = document.getElementById('tokensPurchased');
+        const yieldNote = document.getElementById('yieldNote');
+
+        const updateOutputs = () => {
+            const investment = Number(slider.value);
+            const tokens = Math.floor(investment / property.tokenPrice);
+            const adjustedInvestment = tokens * property.tokenPrice;
+            const monthlyIncome = tokens * (financials.netIncomePerToken || 0);
+
+            if (investmentAmountEl) {
+                investmentAmountEl.textContent = formatCurrency(adjustedInvestment);
+            }
+            if (estimatedIncomeEl) {
+                estimatedIncomeEl.textContent = formatCurrency(monthlyIncome, 2);
+            }
+            if (tokensPurchasedEl) {
+                tokensPurchasedEl.textContent = tokens.toLocaleString();
+            }
+            if (yieldNote) {
+                yieldNote.textContent = tokens
+                    ? `Investing ${formatCurrency(adjustedInvestment)} secures ${tokens.toLocaleString()} tokens with an estimated RM ${monthlyIncome.toFixed(2)} monthly distribution.`
+                    : 'Adjust the slider to see projected passive income at different commitment levels.';
+            }
+        };
+
+        slider.addEventListener('input', updateOutputs);
+        updateOutputs();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const property = pickProperty();
+        if (!property) {
+            return;
+        }
+
+        updateStatusBadge(property);
+        updateText('#detailName', property.name);
+        updateMetrics(property);
+        updateHeaderVisuals(property);
+        updateOverview(property);
+        updateTenantSection(property);
+        updateLiquiditySection(property);
+        updateFinancialSection(property);
+    });
+})();
