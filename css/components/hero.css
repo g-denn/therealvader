@@ -77,18 +77,19 @@
     clip-path: inset(0 100% 0 0);
     animation: hero-line-reveal 1.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     animation-delay: var(--line-delay, 0s);
+    z-index: 1;
 }
 
 .hero-headline-line::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, rgba(14, 81, 45, 0.92) 0%, rgba(29, 185, 84, 0.85) 55%, rgba(12, 57, 32, 0.92) 100%);
+    background: linear-gradient(102deg, rgba(19, 142, 76, 0.92) 0%, rgba(29, 185, 84, 0.98) 55%, rgba(102, 255, 178, 0.9) 100%);
     border-radius: 0.45em;
     transform: scaleX(0);
     transform-origin: left;
-    z-index: -1;
-    box-shadow: 0 25px 35px rgba(12, 57, 32, 0.35);
+    z-index: 0;
+    box-shadow: 0 25px 45px rgba(12, 57, 32, 0.55);
     animation: hero-highlight-fill 1.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     animation-delay: calc(var(--line-delay, 0s) + 0.08s);
 }
