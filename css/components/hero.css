@@ -16,6 +16,32 @@
     position: relative;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.78) 70%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.hero-background spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hero .floating-orb {
+    display: none;
+}
+
 .hero .container {
     width: 100%;
     min-height: auto;
@@ -23,7 +49,7 @@
     flex-direction: column;
     gap: 30px;
     position: relative;
-    z-index: 5;
+    z-index: 2;
     padding: 0 20px;
     margin: 40px auto 0;
     max-width: 1200px;
