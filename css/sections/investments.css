@@ -200,6 +200,359 @@
     z-index: 1;
 }
 
+.portfolio-actions {
+    padding: 120px 0;
+    background: radial-gradient(circle at 15% 20%, rgba(29, 185, 84, 0.12), transparent 55%),
+                radial-gradient(circle at 85% 30%, rgba(29, 185, 84, 0.08), transparent 60%),
+                linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
+}
+
+.sell-cta {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: center;
+    padding: 48px;
+    border-radius: 28px;
+    background: linear-gradient(140deg, rgba(16, 16, 16, 0.95) 0%, rgba(25, 25, 25, 0.92) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 32px 55px rgba(0, 0, 0, 0.45);
+}
+
+.sell-cta__content h2 {
+    margin-bottom: 16px;
+}
+
+.sell-cta__summary {
+    display: grid;
+    gap: 18px;
+    padding: 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(29, 185, 84, 0.18);
+}
+
+.sell-cta__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sell-cta__label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.sell-cta__button {
+    justify-self: start;
+    padding: 18px 34px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--secondary) 0%, #4beb8a 100%);
+    color: #0b0b0b;
+    box-shadow: 0 24px 45px rgba(29, 185, 84, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sell-cta__button:hover,
+.sell-cta__button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 55px rgba(29, 185, 84, 0.45);
+}
+
+.sell-modal[hidden] {
+    display: none;
+}
+
+.sell-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: grid;
+    place-items: center;
+}
+
+.sell-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 8, 0.82);
+    backdrop-filter: blur(10px);
+}
+
+.sell-modal__dialog {
+    position: relative;
+    width: min(640px, calc(100% - 32px));
+    max-height: calc(100vh - 80px);
+    padding: 42px;
+    border-radius: 28px;
+    background: linear-gradient(170deg, rgba(20, 20, 20, 0.98) 0%, rgba(8, 8, 8, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 45px 80px rgba(0, 0, 0, 0.55);
+    overflow-y: auto;
+}
+
+.sell-modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sell-modal__close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sell-modal__close:hover,
+.sell-modal__close:focus-visible {
+    transform: rotate(4deg) scale(1.05);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sell-modal__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.sell-modal__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--secondary);
+}
+
+.sell-modal__intro {
+    color: var(--text-secondary);
+}
+
+.sell-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sell-form__field label,
+.sell-form__toggle-label,
+.sell-input label,
+.sell-auto__cap label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.sell-form select,
+.sell-input input,
+.sell-auto__cap input {
+    width: 100%;
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(29, 185, 84, 0.18);
+    color: var(--text);
+}
+
+.sell-form select:focus,
+.sell-input input:focus,
+.sell-auto__cap input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.25);
+}
+
+.sell-form__toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.sell-form__toggle legend {
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.sell-form__toggle-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sell-form__toggle-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--secondary);
+}
+
+.sell-form__toggle-option:hover,
+.sell-form__toggle-option:focus-within,
+.sell-form__toggle-option.is-selected {
+    background: rgba(29, 185, 84, 0.2);
+}
+
+.sell-form__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.sell-input input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.sell-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sell-slider__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.sell-slider__range {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.sell-slider input[type="range"] {
+    accent-color: var(--secondary);
+}
+
+.sell-slider__value {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.sell-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.sell-summary__item {
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(29, 185, 84, 0.16);
+}
+
+.sell-summary__label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.sell-summary__value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.sell-auto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sell-auto__checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.sell-auto__checkbox input {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--secondary);
+}
+
+.sell-auto__cap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 200px;
+}
+
+.sell-auto__cap input:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.sell-form__submit {
+    align-self: stretch;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(135deg, var(--secondary) 0%, #4beb8a 100%);
+    color: #0b0b0b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(29, 185, 84, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sell-form__submit:hover,
+.sell-form__submit:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 26px 50px rgba(29, 185, 84, 0.45);
+}
+
+body.sell-modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .sell-cta {
+        padding: 32px;
+    }
+
+    .sell-modal__dialog {
+        padding: 32px 24px;
+        max-height: calc(100vh - 40px);
+    }
+}
+
 .cash-card,
 .holdings-card {
     grid-column: 1 / -1;

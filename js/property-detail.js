@@ -26,6 +26,21 @@
         Number.isFinite(value) ? formatCurrency(value, fractionDigits) : '-'
     );
 
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const sanitiseNumericInput = (value) => {
+        if (typeof value === 'number' && Number.isFinite(value)) {
+            return value;
+        }
+
+        if (typeof value !== 'string') {
+            return NaN;
+        }
+
+        const normalised = value.replace(/[^0-9.,]/g, '').replace(/,/g, '');
+        return normalised ? Number(normalised) : NaN;
+    };
+
     const createMapEmbedUrl = (address) => `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 
     const finalizeFinancials = (property) => {
@@ -525,6 +540,219 @@
         updateOutputs();
     };
 
+    const initialiseBuyModal = (property) => {
+        const openButton = document.getElementById('openBuyModal');
+        const modal = document.getElementById('buyModal');
+        if (!openButton || !modal) {
+            return;
+        }
+
+        const dialog = modal.querySelector('.buy-modal__dialog');
+        const slider = modal.querySelector('#buySlider');
+        const amountInput = modal.querySelector('#buyAmount');
+        const unitsInput = modal.querySelector('#buyUnits');
+        const modeInputs = modal.querySelectorAll('input[name="buyMode"]');
+        const sliderMinLabel = modal.querySelector('[data-slider-min]');
+        const sliderMaxLabel = modal.querySelector('[data-slider-max]');
+        const summaryAmount = modal.querySelector('[data-summary-amount]');
+        const summaryUnits = modal.querySelector('[data-summary-units]');
+        const autoInvestCheckbox = modal.querySelector('#autoInvest');
+        const autoInvestCapInput = modal.querySelector('#autoInvestCap');
+        const form = modal.querySelector('#buyForm');
+
+        if (!slider || !amountInput || !unitsInput) {
+            return;
+        }
+
+        const totalTokens = Number.isFinite(property.totalTokens) ? property.totalTokens : 200;
+        const tokenPrice = Number.isFinite(property.tokenPrice) ? property.tokenPrice : 100;
+        const maxTokensForSlider = Math.max(1, Math.min(totalTokens, 250));
+        const amountBounds = {
+            min: tokenPrice,
+            max: tokenPrice * maxTokensForSlider
+        };
+
+        const updateSummary = (amountValue, unitValue) => {
+            if (summaryAmount) {
+                summaryAmount.textContent = formatCurrency(amountValue || 0);
+            }
+            if (summaryUnits) {
+                const safeUnits = Number.isFinite(unitValue) ? unitValue : 0;
+                summaryUnits.textContent = `${safeUnits.toLocaleString()} token${safeUnits === 1 ? '' : 's'}`;
+            }
+        };
+
+        const setSliderLabels = (mode) => {
+            if (!sliderMinLabel || !sliderMaxLabel) {
+                return;
+            }
+
+            if (mode === 'amount') {
+                sliderMinLabel.textContent = formatCurrency(amountBounds.min);
+                sliderMaxLabel.textContent = formatCurrency(amountBounds.max);
+            } else {
+                sliderMinLabel.textContent = '1 token';
+                sliderMaxLabel.textContent = `${maxTokensForSlider.toLocaleString()} token${maxTokensForSlider === 1 ? '' : 's'}`;
+            }
+        };
+
+        let currentMode = 'amount';
+
+        const setMode = (mode) => {
+            currentMode = mode;
+            const isAmountMode = mode === 'amount';
+            amountInput.disabled = !isAmountMode;
+            unitsInput.disabled = isAmountMode;
+            amountInput.parentElement?.classList.toggle('is-active', isAmountMode);
+            unitsInput.parentElement?.classList.toggle('is-active', !isAmountMode);
+
+            setSliderLabels(mode);
+
+            if (mode === 'amount') {
+                slider.min = String(amountBounds.min);
+                slider.max = String(amountBounds.max);
+                slider.step = String(tokenPrice);
+                const desiredAmount = sanitiseNumericInput(amountInput.value);
+                const resolvedAmount = Number.isFinite(desiredAmount)
+                    ? clamp(Math.round(desiredAmount / tokenPrice) * tokenPrice, amountBounds.min, amountBounds.max)
+                    : tokenPrice * Math.min(10, maxTokensForSlider);
+                slider.value = String(resolvedAmount);
+                const derivedUnits = Math.max(1, Math.round(resolvedAmount / tokenPrice));
+                amountInput.value = String(resolvedAmount);
+                unitsInput.value = String(derivedUnits);
+                updateSummary(resolvedAmount, derivedUnits);
+            } else {
+                slider.min = '1';
+                slider.max = String(maxTokensForSlider);
+                slider.step = '1';
+                const desiredUnits = sanitiseNumericInput(unitsInput.value);
+                const resolvedUnits = Number.isFinite(desiredUnits)
+                    ? clamp(Math.round(desiredUnits), 1, maxTokensForSlider)
+                    : Math.min(10, maxTokensForSlider);
+                slider.value = String(resolvedUnits);
+                const derivedAmount = resolvedUnits * tokenPrice;
+                unitsInput.value = String(resolvedUnits);
+                amountInput.value = String(derivedAmount);
+                updateSummary(derivedAmount, resolvedUnits);
+            }
+        };
+
+        const syncFromSlider = () => {
+            if (currentMode === 'amount') {
+                const sliderAmount = Number(slider.value);
+                const roundedAmount = clamp(Math.round(sliderAmount / tokenPrice) * tokenPrice, amountBounds.min, amountBounds.max);
+                const units = Math.max(1, Math.round(roundedAmount / tokenPrice));
+                amountInput.value = String(roundedAmount);
+                unitsInput.value = String(units);
+                updateSummary(roundedAmount, units);
+            } else {
+                const sliderUnits = Number(slider.value);
+                const units = clamp(Math.round(sliderUnits), 1, maxTokensForSlider);
+                const amount = units * tokenPrice;
+                unitsInput.value = String(units);
+                amountInput.value = String(amount);
+                updateSummary(amount, units);
+            }
+        };
+
+        const handleAmountInput = () => {
+            const parsedAmount = sanitiseNumericInput(amountInput.value);
+            if (!Number.isFinite(parsedAmount)) {
+                updateSummary(0, 0);
+                return;
+            }
+
+            const roundedAmount = clamp(Math.round(parsedAmount / tokenPrice) * tokenPrice, amountBounds.min, amountBounds.max);
+            const units = Math.max(1, Math.round(roundedAmount / tokenPrice));
+            amountInput.value = String(roundedAmount);
+            unitsInput.value = String(units);
+            slider.value = String(roundedAmount);
+            updateSummary(roundedAmount, units);
+        };
+
+        const handleUnitsInput = () => {
+            const parsedUnits = sanitiseNumericInput(unitsInput.value);
+            if (!Number.isFinite(parsedUnits)) {
+                updateSummary(0, 0);
+                return;
+            }
+
+            const units = clamp(Math.round(parsedUnits), 1, maxTokensForSlider);
+            const amount = units * tokenPrice;
+            unitsInput.value = String(units);
+            amountInput.value = String(amount);
+            slider.value = currentMode === 'amount' ? String(amount) : String(units);
+            updateSummary(amount, units);
+        };
+
+        const openModal = () => {
+            modal.hidden = false;
+            modal.classList.add('buy-modal--open');
+            document.body.classList.add('buy-modal-open');
+            setMode(currentMode);
+            requestAnimationFrame(() => {
+                dialog?.focus({ preventScroll: true });
+            });
+        };
+
+        const closeModal = () => {
+            modal.hidden = true;
+            modal.classList.remove('buy-modal--open');
+            document.body.classList.remove('buy-modal-open');
+            openButton.focus({ preventScroll: true });
+        };
+
+        openButton.addEventListener('click', openModal);
+
+        modal.querySelectorAll('[data-buy-close]').forEach((el) => {
+            el.addEventListener('click', closeModal);
+        });
+
+        modal.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeModal();
+            }
+        });
+
+        slider.addEventListener('input', syncFromSlider);
+
+        amountInput.addEventListener('change', handleAmountInput);
+        amountInput.addEventListener('blur', handleAmountInput);
+
+        unitsInput.addEventListener('change', handleUnitsInput);
+        unitsInput.addEventListener('blur', handleUnitsInput);
+
+        modeInputs.forEach((input) => {
+            input.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    setMode(event.target.value);
+                }
+            });
+        });
+
+        if (autoInvestCheckbox && autoInvestCapInput) {
+            autoInvestCheckbox.addEventListener('change', () => {
+                const enabled = autoInvestCheckbox.checked;
+                autoInvestCapInput.disabled = !enabled;
+                if (enabled && !autoInvestCapInput.value) {
+                    autoInvestCapInput.value = '15';
+                }
+            });
+        }
+
+        if (form) {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+            });
+        }
+
+        // Initialise with defaults
+        amountInput.value = String(tokenPrice * Math.min(10, maxTokensForSlider));
+        unitsInput.value = String(Math.min(10, maxTokensForSlider));
+        setMode('amount');
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
         const property = pickProperty();
         if (!property) {
@@ -539,5 +767,6 @@
         updateTenantSection(property);
         updateLiquiditySection(property);
         updateFinancialSection(property);
+        initialiseBuyModal(property);
     });
 })();
