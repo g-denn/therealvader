@@ -25,21 +25,18 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(245, 245, 247, 0.36) 50%,
         transparent 100%
     );
     filter: blur(2px);
 }
 
 .contact h2 {
-    color: var(--secondary);
+    color: var(--text);
     text-align: left;
     font-size: 3.2em;
     margin: 0 0 50px 0;
     font-weight: 800;
-    background: linear-gradient(45deg, var(--text) 30%, var(--secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -54,10 +51,10 @@
     transform: none;
     width: 150px;
     height: 4px;
-    background: var(--secondary);
+    background: var(--text);
     border-radius: 3px;
-    opacity: 0.9;
-    box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(245, 245, 247, 0.36);
 }
 
 .contact-form {
@@ -70,7 +67,7 @@
         rgba(18, 18, 18, 0.95) 100%
     );
     border-radius: 20px;
-    border: 1px solid rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(245, 245, 247, 0.18);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -100,11 +97,11 @@
 
 /* Form section headings */
 .form-section h3 {
-    color: var(--secondary);
+    color: var(--text);
     font-size: 1.5em;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(29, 185, 84, 0.2);
+    border-bottom: 1px solid var(--border-soft);
     position: relative;
   /* Match section title alignment */
     text-align: left;
@@ -121,7 +118,7 @@
     width: 100%;
     padding: 12px 15px;
     background: rgba(18, 18, 18, 0.6);
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(245, 245, 247, 0.12);
     border-radius: 8px;
     color: var(--text);
     font-size: 1em;
@@ -194,11 +191,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background: linear-gradient(
-        45deg,
-        var(--secondary) 0%,
-        #1ed760 100%
-    );
+    background: var(--text);
     color: var(--primary);
     padding: 18px 40px;
     border: none;
@@ -211,12 +204,13 @@ button[type="submit"] {
     letter-spacing: 1px;
     margin-top: 20px;
     width: 100%;
-    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+    box-shadow: 0 4px 15px rgba(245, 245, 247, 0.24);
 }
 
 button[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
+    box-shadow: 0 6px 20px rgba(245, 245, 247, 0.36);
+    background: var(--secondary);
 }
 
 @media (max-width: 1200px) {

@@ -15,7 +15,7 @@
     padding: 30px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(245, 245, 247, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -29,7 +29,7 @@
     font-size: 1.4em;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(29, 185, 84, 0.1);
+    border-bottom: 1px solid rgba(245, 245, 247, 0.12);
 }
 
 /* Charts Row */
@@ -67,7 +67,7 @@
 }
 
 .metric.primary {
-    background: rgba(29, 185, 84, 0.05);
+    background: rgba(245, 245, 247, 0.05);
     padding: 30px;
     border-radius: 15px;
     text-align: center;
@@ -76,10 +76,10 @@
 .metric-value {
     font-size: 2.8em;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--text);
     display: block;
     margin-bottom: 10px;
-    text-shadow: 0 2px 10px rgba(29, 185, 84, 0.2);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .metric-label {
@@ -93,8 +93,8 @@
     border-radius: 20px;
     font-size: 0.9em;
     margin-top: 15px;
-    background: rgba(29, 185, 84, 0.1);
-    color: var(--secondary);
+    background: rgba(245, 245, 247, 0.1);
+    color: var(--text);
 }
 
 /* Stats Grid */
@@ -145,7 +145,7 @@
 }
 
 .property-type i {
-    color: var(--secondary);
+    color: var(--text);
 }
 
 .property-specs {
@@ -205,9 +205,9 @@
 }
 
 .tokenize-btn:hover {
-    background: #1ed760;
+    background: var(--secondary);
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(29, 185, 84, 0.2);
+    box-shadow: 0 5px 20px rgba(245, 245, 247, 0.24);
 }
 
 /* Add/modify these styles */

@@ -3,13 +3,18 @@
 
 /* Variables */
 :root {
-    --primary: #000000;
-    --secondary: #1DB954;  /* Spotify-like green for accents */
-    --text: #FFFFFF;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --dark-gray: #121212;
-    --medium-gray: #1E1E1E;
-    --light-gray: #404040;
+    --primary: #050505;
+    --secondary: #9df0ca;
+    --secondary-soft: rgba(157, 240, 202, 0.24);
+    --text: #f5f5f7;
+    --text-secondary: rgba(245, 245, 247, 0.68);
+    --dark-gray: #050505;
+    --medium-gray: #0d0d10;
+    --light-gray: #141419;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-strong: rgba(255, 255, 255, 0.08);
+    --border-soft: rgba(245, 245, 247, 0.12);
+    --border-strong: rgba(245, 245, 247, 0.18);
 }
 
 /* Base Styles */
@@ -21,8 +26,8 @@
 
 body {
     line-height: 1.6;
-    color: var(--text, #FFFFFF);
-    background: var(--dark-gray, #121212);
+    color: var(--text, #f5f5f7);
+    background: var(--primary, #050505);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     animation: fadeIn 0.3s ease-in;
 }
@@ -48,7 +53,7 @@ h1 {
 h2 {
     font-size: 2.8em;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--text);
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
@@ -71,18 +76,18 @@ p {
 
 /* Links */
 a {
-    color: var(--secondary);
+    color: var(--text);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #1ed760;
+    color: var(--secondary);
 }
 
 /* Buttons */
 button {
-    background: var(--secondary);
+    background: var(--text);
     color: var(--primary);
     border: none;
     padding: 12px 24px;
@@ -93,14 +98,14 @@ button {
 }
 
 button:hover {
-    background: #1ed760;
+    background: var(--secondary);
     transform: translateY(-2px);
 }
 
 /* Form Elements */
 input, select, textarea {
-    background: var(--dark-gray);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--medium-gray);
+    border: 1px solid var(--border-soft);
     color: var(--text);
     padding: 12px 15px;
     border-radius: 8px;
@@ -111,7 +116,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--secondary);
-    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.1);
+    box-shadow: 0 0 0 2px rgba(116, 240, 188, 0.24);
 }
 
 /* Smooth Scrolling */
@@ -121,8 +126,8 @@ html {
 
 /* Add fallbacks for critical styles */
 body {
-    background-color: var(--dark-gray, #121212);
-    color: var(--text, #FFFFFF);
+    background-color: var(--primary, #050505);
+    color: var(--text, #f5f5f7);
 }
 
 /* Container */
@@ -160,7 +165,7 @@ body {
 
 /* Selection */
 ::selection {
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(245, 245, 247, 0.24);
     color: var(--text);
 }
 
@@ -197,7 +202,7 @@ section h2 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(29, 185, 84, 0.1);
+    text-shadow: 0 0 30px rgba(245, 245, 247, 0.12);
 }
 
 @keyframes floatText {
@@ -220,7 +225,7 @@ section h2 {
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(245, 245, 247, 0.12) 0%, transparent 70%);
     filter: blur(20px);
     transform: translate(-50%, -50%);
     z-index: -1;

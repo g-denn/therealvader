@@ -5,7 +5,7 @@ function copyCode() {
     navigator.clipboard.writeText(code)
         .then(() => {
             copyBtn.textContent = 'Copied!';
-            copyBtn.style.background = '#1ed760';
+            copyBtn.style.background = 'var(--secondary)';
             copyBtn.style.transform = 'translateY(-1px)';
             
             setTimeout(() => {

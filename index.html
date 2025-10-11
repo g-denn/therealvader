@@ -26,9 +26,11 @@
     <link rel="stylesheet" href="css/components/animations.css">
     <script src="js/code-showcase.js" defer></script>
     <script src="js/animations.js" defer></script>
+    <script src="js/common.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Make sure this is in the head section -->
     <link rel="stylesheet" href="css/components/chat.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.20/build/spline-viewer.js"></script>
 </head>
 <body>
     <nav class="nav">
@@ -39,16 +41,16 @@
             </a>
             <div class="nav-links">
                 <div class="nav-item">
-                    <a href="#problem" class="nav-link">About</a>
+                    <a href="/#problem" class="nav-link">About</a>
                     <div class="nav-dropdown">
-                        <a href="#problem" class="scroll-link">The Problem</a>
-                        <a href="#benefits" class="scroll-link">Benefits</a>
+                        <a href="/#problem" class="scroll-link">The Problem</a>
+                        <a href="/#benefits" class="scroll-link">Benefits</a>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <a href="#tokenization" class="nav-link">How It Works</a>
+                    <a href="/#tokenization" class="nav-link">How It Works</a>
                     <div class="nav-dropdown">
-                        <a href="#tokenization" class="scroll-link">Tokenization</a>
+                        <a href="/#tokenization" class="scroll-link">Tokenization</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -60,18 +62,16 @@
                 </div>
                 <a href="/investments.html" class="nav-page">Investments</a>
                 <a href="/wallet.html" class="nav-page">Wallet</a>
-                <a href="#contact" class="nav-page contact-btn">Contact Us</a>
+                <a href="/#contact" class="nav-page contact-btn">Contact Us</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="floating-orb orb-1"></div>
-        <div class="floating-orb orb-2"></div>
-        <div class="floating-orb orb-3"></div>
-        <div class="floating-orb orb-4"></div>
-        <div class="floating-orb orb-5"></div>
-        <div class="floating-orb orb-6"></div>
+        <div class="hero-background" aria-hidden="true">
+            <spline-viewer class="hero-spline" loading-anim="false" url="https://prod.spline.design/gxgXLmiwIASvMdmE/scene.splinecode"></spline-viewer>
+            <div class="hero-background-fallback"></div>
+        </div>
         <div class="container">
             <h1>
                 <span>Revolutionizing Real Estate</span>
@@ -109,7 +109,7 @@
         
         <div style="display: flex; gap: 40px; padding: 0 200px; margin-bottom: 40px; justify-content: center;">
             <!-- Left side - Main text -->
-            <div style="max-width: 900px; background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); border-radius: 20px; border: 1px solid rgba(29, 185, 84, 0.15); padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <div style="max-width: 900px; background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); border-radius: 20px; border: 1px solid rgba(245, 245, 247, 0.18); padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
                 <p style="color: var(--text); font-size: 1.4em; line-height: 1.8; margin-bottom: 30px; font-weight: 300;">
                     <span style="color: var(--secondary); font-weight: 500;">Transform your property into a digital powerhouse!</span> Imagine unlocking the hidden potential of your real estate through simple, secure tokenization. Just like splitting a pie into perfectly sized slices, tokenization lets you divide your property ownership into digital shares – opening doors to possibilities you never thought possible.
                 </p>
@@ -125,9 +125,9 @@
 
             <!-- Right side - Use cases -->
             <div style="width: 400px; display: grid; grid-template-rows: repeat(3, 1fr); gap: 20px;">
-                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(245, 245, 247, 0.18); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 40px; height: 40px; background: rgba(245, 245, 247, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
                                 <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3m4-3v3m4-3v3"/>
                             </svg>
@@ -150,9 +150,9 @@
                     </ul>
                 </div>
 
-                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(245, 245, 247, 0.18); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 40px; height: 40px; background: rgba(245, 245, 247, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
@@ -175,9 +175,9 @@
                     </ul>
                 </div>
 
-                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(29, 185, 84, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
+                <div style="background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%); padding: 25px; border-radius: 15px; border: 1px solid rgba(245, 245, 247, 0.18); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.2)';">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                        <div style="width: 40px; height: 40px; background: rgba(29, 185, 84, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 40px; height: 40px; background: rgba(245, 245, 247, 0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2">
                                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
                             </svg>
@@ -223,7 +223,7 @@
                         <div class="step">
                             <svg width="60" height="60" viewBox="0 0 100 100">
                                 <!-- House Vector -->
-                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                <g fill="none" stroke="#9df0ca" stroke-width="3">
                                     <path d="M50 20L20 45V80H80V45L50 20Z"/>
                                     <path d="M45 80V60H55V80"/>
                                     <rect x="35" y="45" width="12" height="12"/>
@@ -237,7 +237,7 @@
                         <div class="step">
                             <svg width="60" height="60" viewBox="0 0 100 100">
                                 <!-- Token Vector -->
-                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                <g fill="none" stroke="#9df0ca" stroke-width="3">
                                     <circle cx="50" cy="50" r="30"/>
                                     <path d="M50 30V70"/>
                                     <path d="M35 40H65"/>
@@ -251,7 +251,7 @@
                         <div class="step">
                             <svg width="60" height="60" viewBox="0 0 100 100">
                                 <!-- Market Vector -->
-                                <g fill="none" stroke="#1DB954" stroke-width="3">
+                                <g fill="none" stroke="#9df0ca" stroke-width="3">
                                     <path d="M20 20V80H80"/>
                                     <path d="M25 60L35 40L45 65L60 30L75 45" class="chart-line"/>
                                 </g>
@@ -390,8 +390,8 @@
         padding: 80px 0; 
         background: radial-gradient(circle at 10% 20%, rgba(30, 30, 30, 0.98) 0%, rgba(18, 18, 18, 0.97) 90%),
                     repeating-linear-gradient(45deg, 
-                        rgba(29, 185, 84, 0.05) 0%, 
-                        rgba(29, 185, 84, 0.05) 1px,
+                        rgba(245, 245, 247, 0.05) 0%, 
+                        rgba(245, 245, 247, 0.05) 1px,
                         transparent 1px,
                         transparent 10px);
         position: relative;
@@ -402,7 +402,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle at center, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(245, 245, 247, 0.12) 0%, transparent 70%);
             top: -100px;
             right: -100px;
             border-radius: 50%;
@@ -412,7 +412,7 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle at center, rgba(29, 185, 84, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(245, 245, 247, 0.08) 0%, transparent 70%);
             bottom: -50px;
             left: -50px;
             border-radius: 50%;
@@ -635,14 +635,14 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#problem">The Problem</a></li>
-                        <li><a href="#tokenization">How It Works</a></li>
-                        <li><a href="#solution">Our Solution</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="/#problem">The Problem</a></li>
+                        <li><a href="/#tokenization">How It Works</a></li>
+                        <li><a href="/#solution">Our Solution</a></li>
+                        <li><a href="/#benefits">Benefits</a></li>
                         <li><a href="/marketplace.html">Properties</a></li>
                         <li><a href="/investments.html">Investments</a></li>
                         <li><a href="/wallet.html">Wallet</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -705,7 +705,7 @@
                 rgba(18, 18, 18, 0.98) 100%
             );
             border-radius: 15px;
-            border: 1px solid rgba(29, 185, 84, 0.15);
+            border: 1px solid rgba(245, 245, 247, 0.18);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
@@ -718,7 +718,7 @@
             padding: 15px 20px;
             background: linear-gradient(
                 90deg,
-                rgba(29, 185, 84, 0.1) 0%,
+                rgba(245, 245, 247, 0.12) 0%,
                 rgba(18, 18, 18, 0.95) 100%
             );
             color: var(--text);
@@ -726,7 +726,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(29, 185, 84, 0.15);
+            border-bottom: 1px solid rgba(245, 245, 247, 0.18);
         }
 
         .chat-header h3 {
@@ -765,14 +765,14 @@
             padding: 20px;
             display: flex;
             gap: 12px;
-            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            border-top: 1px solid rgba(245, 245, 247, 0.12);
         }
 
         .chat-input input {
             flex-grow: 1;
             padding: 12px 15px;
             background: var(--medium-gray);
-            border: 1px solid rgba(29, 185, 84, 0.1);
+            border: 1px solid rgba(245, 245, 247, 0.12);
             border-radius: 8px;
             color: var(--text);
             font-size: 1em;
@@ -783,12 +783,12 @@
         .chat-input input:focus {
             outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.1);
+            box-shadow: 0 0 0 2px rgba(245, 245, 247, 0.12);
         }
 
         .chat-input button {
             padding: 12px 20px;
-            background: var(--secondary);
+            background: var(--text);
             color: var(--primary);
             border: none;
             border-radius: 8px;
@@ -798,7 +798,7 @@
         }
 
         .chat-input button:hover {
-            background: #1ed760;
+            background: var(--secondary);
             transform: translateY(-2px);
         }
 
@@ -808,7 +808,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background: var(--secondary);
+            background: var(--text);
             color: var(--primary);
             border: none;
             border-radius: 50%;
@@ -816,7 +816,7 @@
             z-index: 999;
             padding: 0;  /* Remove default padding */
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+            box-shadow: 0 4px 15px rgba(245, 245, 247, 0.36);
         }
 
         .icon-wrapper {
@@ -829,7 +829,7 @@
 
         .chat-trigger:hover {
             transform: scale(1.1);
-            background: #1ed760;
+            background: var(--secondary);
         }
 
         .chat-trigger svg {
@@ -859,10 +859,10 @@
         .ai-message {
             background: linear-gradient(
                 to right,
-                rgba(29, 185, 84, 0.05) 0%,
-                rgba(29, 185, 84, 0.1) 100%
+                rgba(245, 245, 247, 0.05) 0%,
+                rgba(245, 245, 247, 0.12) 100%
             );
-            border: 1px solid rgba(29, 185, 84, 0.15);
+            border: 1px solid rgba(245, 245, 247, 0.18);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-left: auto;
         }
@@ -871,7 +871,7 @@
             padding: 15px;
             text-align: center;
             color: var(--text-secondary);
-            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            border-top: 1px solid rgba(245, 245, 247, 0.12);
             font-size: 0.9em;
         }
 
@@ -885,12 +885,12 @@
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-            background: rgba(29, 185, 84, 0.2);
+            background: rgba(245, 245, 247, 0.24);
             border-radius: 4px;
         }
 
         .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: rgba(29, 185, 84, 0.3);
+            background: rgba(245, 245, 247, 0.36);
         }
 
         /* Message Animation */
@@ -941,7 +941,7 @@
             margin-top: 10px;
             font-size: 0.8em;
             color: var(--text-secondary);
-            border-top: 1px solid rgba(29, 185, 84, 0.1);
+            border-top: 1px solid rgba(245, 245, 247, 0.12);
             padding-top: 8px;
         }
 
@@ -954,7 +954,7 @@
 
         .citations a:hover {
             text-decoration: underline;
-            color: #1ed760;
+            color: var(--text);
         }
 
         .ai-profile {
@@ -969,7 +969,7 @@
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--secondary);
-            background: rgba(29, 185, 84, 0.1);
+            background: rgba(245, 245, 247, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1569,14 +1569,14 @@ What would you like to know more about?`;
         padding: 20px;
         background: linear-gradient(165deg, rgba(30, 30, 30, 0.6) 0%, rgba(18, 18, 18, 0.8) 100%);
         border-radius: 20px;
-        border: 1px solid rgba(29, 185, 84, 0.15);
+        border: 1px solid rgba(245, 245, 247, 0.18);
     }
 
     .code-container {
         background: linear-gradient(165deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
         border-radius: 15px;
         overflow: hidden;
-        border: 1px solid rgba(29, 185, 84, 0.1);
+        border: 1px solid rgba(245, 245, 247, 0.12);
         margin-top: 20px;
     }
 
@@ -1585,8 +1585,8 @@ What would you like to know more about?`;
         justify-content: space-between;
         align-items: center;
         padding: 15px 20px;
-        background: rgba(29, 185, 84, 0.1);
-        border-bottom: 1px solid rgba(29, 185, 84, 0.15);
+        background: rgba(245, 245, 247, 0.12);
+        border-bottom: 1px solid rgba(245, 245, 247, 0.18);
     }
 
     .file-name {
@@ -1602,8 +1602,8 @@ What would you like to know more about?`;
 
     .copy-btn {
         padding: 5px 10px;
-        background: rgba(29, 185, 84, 0.2);
-        border: 1px solid rgba(29, 185, 84, 0.3);
+        background: rgba(245, 245, 247, 0.24);
+        border: 1px solid rgba(245, 245, 247, 0.36);
         border-radius: 5px;
         color: var(--secondary);
         cursor: pointer;
@@ -1612,7 +1612,7 @@ What would you like to know more about?`;
     }
 
     .copy-btn:hover {
-        background: rgba(29, 185, 84, 0.3);
+        background: rgba(245, 245, 247, 0.36);
     }
 
     .code-content {
@@ -1638,7 +1638,7 @@ What would you like to know more about?`;
         margin-top: 20px;
         background: linear-gradient(165deg, rgba(25, 25, 25, 0.7) 0%, rgba(15, 15, 15, 0.8) 100%);
         border-radius: 15px;
-        border: 1px solid rgba(29, 185, 84, 0.1);
+        border: 1px solid rgba(245, 245, 247, 0.12);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
@@ -1668,9 +1668,9 @@ What would you like to know more about?`;
     .explanation-item {
         margin-bottom: 35px;
         padding: 20px;
-        background: rgba(29, 185, 84, 0.05);
+        background: rgba(245, 245, 247, 0.05);
         border-radius: 12px;
-        border: 1px solid rgba(29, 185, 84, 0.1);
+        border: 1px solid rgba(245, 245, 247, 0.12);
         transition: all 0.3s ease;
     }
 
@@ -1680,7 +1680,7 @@ What would you like to know more about?`;
 
     .explanation-item:hover {
         transform: translateY(-2px);
-        background: rgba(29, 185, 84, 0.08);
+        background: rgba(245, 245, 247, 0.08);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
 
@@ -1809,27 +1809,5 @@ What would you like to know more about?`;
     });
     </script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Smooth scrolling for dropdown links
-        document.querySelectorAll('.scroll-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    const navHeight = document.querySelector('.nav').offsetHeight;
-                    const targetPosition = targetSection.offsetTop - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-    </script>
 </body>
-</html> 
+</html>
