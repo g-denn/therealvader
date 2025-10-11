@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ], 0.1, 0.06);
 
     addAnimationClass([
-        ...document.querySelectorAll('.hero h1 span'),
         document.querySelector('.hero p'),
         ...document.querySelectorAll('.hero .hero-quote p, .hero .hero-quote .quote-author')
     ], 0.35, 0.12, 'text-glow');
