@@ -15,31 +15,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeNavigation() {
-    // Smooth scrolling for dropdown links
-    document.querySelectorAll('.scroll-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+    // Smooth scrolling for in-page navigation links
+    const hashLinks = document.querySelectorAll('a[href^="#"], a[href^="/#"]');
+    hashLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
             const href = link.getAttribute('href');
-            if (href.startsWith('/#')) {
-                // If we're not on the homepage, navigate there first
-                if (window.location.pathname !== '/') {
-                    window.location.href = href;
-                    return;
-                }
-                
-                e.preventDefault();
-                const targetId = href.substring(2);
-                const targetSection = document.querySelector('#' + targetId);
-                
-                if (targetSection) {
-                    const navHeight = document.querySelector('.nav').offsetHeight;
-                    const targetPosition = targetSection.offsetTop - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+            if (!href) {
+                return;
             }
+
+            const normalizedHref = href.startsWith('/#') ? href.slice(1) : href;
+            if (!normalizedHref.startsWith('#')) {
+                return;
+            }
+
+            const targetId = normalizedHref.slice(1);
+            if (!targetId) {
+                return;
+            }
+
+            const onHomepage = normalizePath(window.location.pathname) === '/';
+            if (!onHomepage) {
+                window.location.href = `/#${targetId}`;
+                return;
+            }
+
+            event.preventDefault();
+            const targetSection = document.getElementById(targetId);
+            if (!targetSection) {
+                return;
+            }
+
+            const navElement = document.querySelector('.nav');
+            const navHeight = navElement ? navElement.offsetHeight : 0;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - navHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 }
