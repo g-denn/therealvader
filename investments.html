@@ -292,6 +292,121 @@
         </div>
     </section>
 
+    <section class="portfolio-actions" aria-labelledby="sellTokensHeading">
+        <div class="container">
+            <div class="sell-cta">
+                <div class="sell-cta__content">
+                    <h2 id="sellTokensHeading">Ready to realise your gains?</h2>
+                    <p>
+                        Review each Bandar Sunway holding, choose the amount or number of tokens to part with, and
+                        arrange a sale in a few clicks. Your available balances below reflect the most recent
+                        portfolio snapshot.
+                    </p>
+                </div>
+                <div class="sell-cta__summary" role="presentation">
+                    <div class="sell-cta__metric">
+                        <span class="sell-cta__label">Total units held</span>
+                        <strong>3,490 units</strong>
+                    </div>
+                    <div class="sell-cta__metric">
+                        <span class="sell-cta__label">Portfolio value</span>
+                        <strong>RM3,677,000</strong>
+                    </div>
+                </div>
+                <button type="button" class="sell-cta__button" id="openSellModal">Sell tokens</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="sell-modal" id="sellModal" hidden>
+        <div class="sell-modal__overlay" data-sell-close></div>
+        <div class="sell-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="sellModalTitle"
+            tabindex="-1">
+            <button type="button" class="sell-modal__close" data-sell-close aria-label="Close sell details">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="sell-modal__header">
+                <span class="sell-modal__eyebrow">Portfolio exit</span>
+                <h2 id="sellModalTitle">Schedule a token sale</h2>
+                <p class="sell-modal__intro">
+                    Select the property you would like to exit, decide whether to sell by amount or units, and preview
+                    the expected proceeds before confirming the order.
+                </p>
+            </div>
+            <form class="sell-form" id="sellForm" novalidate>
+                <div class="sell-form__field">
+                    <label for="sellProperty">Choose property</label>
+                    <select id="sellProperty" name="sellProperty">
+                        <option value="lacosta">LaCosta @ Sunway South Quay</option>
+                        <option value="geolake">Sunway GeoLake Residences</option>
+                        <option value="greenfield">Greenfield Residence</option>
+                        <option value="ridzuan">Ridzuan Condominium</option>
+                    </select>
+                </div>
+                <fieldset class="sell-form__toggle" aria-label="Choose sale input mode">
+                    <legend class="sell-form__toggle-label">Amount or Units</legend>
+                    <label class="sell-form__toggle-option">
+                        <input type="radio" name="sellMode" value="amount" checked>
+                        <span>Amount (RM)</span>
+                    </label>
+                    <label class="sell-form__toggle-option">
+                        <input type="radio" name="sellMode" value="units">
+                        <span>Units</span>
+                    </label>
+                </fieldset>
+                <div class="sell-form__fields">
+                    <div class="sell-input">
+                        <label for="sellAmount">Amount (RM)</label>
+                        <input type="number" id="sellAmount" name="sellAmount" inputmode="decimal" min="0"
+                            step="1" placeholder="0.00">
+                    </div>
+                    <div class="sell-input">
+                        <label for="sellUnits">Units</label>
+                        <input type="number" id="sellUnits" name="sellUnits" inputmode="decimal" min="0"
+                            step="1" placeholder="0" disabled>
+                    </div>
+                </div>
+                <div class="sell-slider">
+                    <div class="sell-slider__header">
+                        <label for="sellSlider">Adjust sale size</label>
+                        <span class="sell-slider__range" data-sell-slider-range>0% → 100%</span>
+                    </div>
+                    <input type="range" id="sellSlider" name="sellSlider" min="0" max="100" value="0" step="1">
+                    <span class="sell-slider__value" aria-live="polite" data-sell-slider-value>0% of holdings</span>
+                </div>
+                <div class="sell-summary" aria-live="polite">
+                    <div class="sell-summary__item">
+                        <span class="sell-summary__label">Available units</span>
+                        <span class="sell-summary__value" data-available-units>0</span>
+                    </div>
+                    <div class="sell-summary__item">
+                        <span class="sell-summary__label">Unit price</span>
+                        <span class="sell-summary__value" data-unit-price>RM0.00</span>
+                    </div>
+                    <div class="sell-summary__item">
+                        <span class="sell-summary__label">Estimated proceeds</span>
+                        <span class="sell-summary__value" data-estimated-proceeds>RM0.00</span>
+                    </div>
+                </div>
+                <div class="sell-auto">
+                    <label class="sell-auto__checkbox" for="sellAutoInvest">
+                        <input type="checkbox" id="sellAutoInvest" name="sellAutoInvest">
+                        Auto-invest future payouts?
+                    </label>
+                    <div class="sell-auto__cap">
+                        <label for="sellAutoCap">Cap (% of proceeds)</label>
+                        <input type="number" id="sellAutoCap" name="sellAutoCap" min="0" max="100" step="1"
+                            value="25" disabled>
+                    </div>
+                </div>
+                <button type="submit" class="sell-form__submit">Place sell order</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -328,5 +443,6 @@
             </div>
         </div>
     </footer>
+    <script src="js/investments.js"></script>
 </body>
 </html>
