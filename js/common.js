@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     initialiseNavigation();
+    hydrateHeroSpline();
 
     // If we land on the homepage with a hash, adjust the scroll position
     if (isHomePath(window.location.pathname) && window.location.hash) {
@@ -80,5 +81,57 @@ function scrollToSection(sectionId, options = { smooth: true }) {
         top: offset,
         behavior: options.smooth ? 'smooth' : 'auto'
     });
+}
+
+function hydrateHeroSpline() {
+    const heroBackground = document.querySelector('.hero-background');
+    const splineElement = heroBackground ? heroBackground.querySelector('spline-viewer') : null;
+
+    if (!heroBackground || !splineElement) {
+        return;
+    }
+
+    if (!window.customElements || !customElements.get('spline-viewer')) {
+        const existingScript = document.querySelector('script[src*="@splinetool/viewer"]');
+        if (!existingScript) {
+            const script = document.createElement('script');
+            script.type = 'module';
+            script.src = 'https://unpkg.com/@splinetool/viewer@1.9.20/build/spline-viewer.js';
+            document.head.appendChild(script);
+        }
+    }
+
+    let fallbackTimeout = null;
+
+    const markLoaded = () => {
+        if (heroBackground.dataset.loaded === 'true') {
+            return;
+        }
+
+        heroBackground.dataset.loaded = 'true';
+        if (fallbackTimeout) {
+            clearTimeout(fallbackTimeout);
+            fallbackTimeout = null;
+        }
+    };
+
+    const handleSplineLoad = () => {
+        markLoaded();
+        splineElement.removeEventListener('load', handleSplineLoad);
+    };
+
+    splineElement.addEventListener('load', handleSplineLoad);
+
+    // If the canvas is already present (e.g. browser cached), mark as loaded immediately
+    if (splineElement.shadowRoot && splineElement.shadowRoot.querySelector('canvas')) {
+        requestAnimationFrame(markLoaded);
+    }
+
+    // Fallback in case the load event doesn't fire within a reasonable window
+    fallbackTimeout = setTimeout(() => {
+        if (heroBackground.dataset.loaded !== 'true') {
+            heroBackground.dataset.loaded = 'fallback';
+        }
+    }, 8000);
 }
 
