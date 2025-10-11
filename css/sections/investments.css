@@ -210,13 +210,20 @@
 .sell-cta {
     display: grid;
     gap: 32px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    align-items: center;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    grid-template-areas:
+        "content summary"
+        "button summary";
+    align-items: start;
     padding: 48px;
     border-radius: 28px;
     background: linear-gradient(140deg, rgba(16, 16, 16, 0.95) 0%, rgba(25, 25, 25, 0.92) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 32px 55px rgba(0, 0, 0, 0.45);
+}
+
+.sell-cta__content {
+    grid-area: content;
 }
 
 .sell-cta__content h2 {
@@ -230,6 +237,8 @@
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(29, 185, 84, 0.18);
+    grid-area: summary;
+    align-self: stretch;
 }
 
 .sell-cta__metric {
@@ -246,7 +255,9 @@
 }
 
 .sell-cta__button {
+    grid-area: button;
     justify-self: start;
+    align-self: end;
     padding: 18px 34px;
     border-radius: 999px;
     border: none;
@@ -545,6 +556,11 @@ body.sell-modal-open {
 @media (max-width: 768px) {
     .sell-cta {
         padding: 32px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "content"
+            "summary"
+            "button";
     }
 
     .sell-modal__dialog {
