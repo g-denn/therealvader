@@ -67,45 +67,39 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    padding: 0.1em 0.35em 0.15em;
-    color: var(--text);
+    padding: 0.18em 0.6em 0.22em;
+    color: #ffffff;
     -webkit-text-fill-color: currentColor;
-    line-height: 1.15;
+    line-height: 1.1;
     white-space: normal;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     isolation: isolate;
     overflow: hidden;
+    border-radius: 0.5em;
+    background: linear-gradient(102deg, rgba(19, 142, 76, 0.96) 0%, rgba(29, 185, 84, 0.98) 55%, rgba(102, 255, 178, 0.92) 100%);
+    box-shadow: 0 25px 45px rgba(12, 57, 32, 0.55);
     clip-path: inset(0 100% 0 0);
     animation: hero-line-reveal 1.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     animation-delay: var(--line-delay, 0s);
     z-index: 1;
-}
-
-.hero-headline-line::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(102deg, rgba(19, 142, 76, 0.92) 0%, rgba(29, 185, 84, 0.98) 55%, rgba(102, 255, 178, 0.9) 100%);
-    border-radius: 0.45em;
-    transform: scaleX(0);
-    transform-origin: left;
-    z-index: 0;
-    box-shadow: 0 25px 45px rgba(12, 57, 32, 0.55);
-    animation: hero-highlight-fill 1.85s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    animation-delay: calc(var(--line-delay, 0s) + 0.08s);
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .hero-headline-line::after {
     content: "";
     position: absolute;
-    top: 14%;
-    bottom: 14%;
+    top: 18%;
+    bottom: 18%;
     width: 3px;
-    right: -0.2em;
-    background: var(--secondary);
+    right: 0.15em;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
     opacity: 0;
     animation: hero-caret 1.85s steps(30) forwards, hero-caret-blink 0.9s steps(1) infinite;
     animation-delay: var(--line-delay, 0s), calc(var(--line-delay, 0s) + 1.85s);
     animation-fill-mode: forwards, none;
+    mix-blend-mode: screen;
 }
 
 @keyframes hero-line-reveal {
@@ -114,20 +108,6 @@
     }
     100% {
         clip-path: inset(0 0 0 0);
-    }
-}
-
-@keyframes hero-highlight-fill {
-    0% {
-        transform: scaleX(0);
-        opacity: 0.15;
-    }
-    25% {
-        opacity: 1;
-    }
-    100% {
-        transform: scaleX(1.02);
-        opacity: 1;
     }
 }
 
@@ -156,7 +136,6 @@
 
 @media (prefers-reduced-motion: reduce) {
     .hero-headline-line,
-    .hero-headline-line::before,
     .hero-headline-line::after {
         animation: none !important;
         clip-path: none;
@@ -165,10 +144,6 @@
     }
 
     .hero-headline-line::after {
-        opacity: 0;
-    }
-
-    .hero-headline-line::before {
         opacity: 0;
     }
 }
