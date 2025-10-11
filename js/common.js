@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Update active states based on current page
-    const currentPage = window.location.pathname;
+    const currentPage = normalizePath(window.location.pathname);
     document.querySelectorAll('.nav-page').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        const linkPath = normalizePath(href);
+
+        if (linkPath && linkPath === currentPage) {
             link.classList.add('active');
         }
     });
@@ -39,4 +42,32 @@ function initializeNavigation() {
             }
         });
     });
-} 
+}
+
+function normalizePath(path) {
+    if (!path || path.startsWith('#')) {
+        return '';
+    }
+
+    try {
+        // Allow passing full URLs as well as relative paths
+        const url = new URL(path, window.location.origin);
+        path = url.pathname;
+    } catch (error) {
+        // Fallback to the raw path if URL parsing fails
+    }
+
+    if (!path.startsWith('/')) {
+        path = '/' + path;
+    }
+
+    if (path === '/index.html') {
+        return '/';
+    }
+
+    if (path.length > 1 && path.endsWith('/')) {
+        path = path.slice(0, -1);
+    }
+
+    return path;
+}
