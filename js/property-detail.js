@@ -41,7 +41,28 @@
         return normalised ? Number(normalised) : NaN;
     };
 
-    const createMapEmbedUrl = (address) => `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+    const isFiniteNumber = (value) => typeof value === 'number' && Number.isFinite(value);
+
+    const clampValue = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const createMapEmbedUrl = (address, coordinates) => {
+        if (coordinates && isFiniteNumber(coordinates.lat) && isFiniteNumber(coordinates.lng)) {
+            const lat = clampValue(coordinates.lat, -90, 90);
+            const lng = clampValue(coordinates.lng, -180, 180);
+            const latOffset = clampValue(coordinates.latOffset ?? 0.01, 0.002, 0.25);
+            const lngOffset = clampValue(coordinates.lngOffset ?? 0.01, 0.002, 0.25);
+            const minLat = clampValue(lat - latOffset, -90, 90).toFixed(6);
+            const maxLat = clampValue(lat + latOffset, -90, 90).toFixed(6);
+            const minLng = clampValue(lng - lngOffset, -180, 180).toFixed(6);
+            const maxLng = clampValue(lng + lngOffset, -180, 180).toFixed(6);
+            const marker = `${lat.toFixed(6)}%2C${lng.toFixed(6)}`;
+            const bbox = `${minLng}%2C${minLat}%2C${maxLng}%2C${maxLat}`;
+
+            return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
+        }
+
+        return '';
+    };
 
     const finalizeFinancials = (property) => {
         if (!property.detail) {
@@ -81,9 +102,19 @@
         const tenantProfile = overrides.tenantProfile || {};
         const liquidity = overrides.liquidity || {};
 
+        const coordinates = overrides.coordinates && isFiniteNumber(overrides.coordinates.lat) && isFiniteNumber(overrides.coordinates.lng)
+            ? {
+                lat: overrides.coordinates.lat,
+                lng: overrides.coordinates.lng,
+                latOffset: overrides.coordinates.latOffset,
+                lngOffset: overrides.coordinates.lngOffset
+            }
+            : undefined;
+
         property.detail = {
             address,
-            mapEmbedUrl: overrides.mapEmbedUrl || createMapEmbedUrl(address),
+            coordinates,
+            mapEmbedUrl: overrides.mapEmbedUrl || createMapEmbedUrl(address, coordinates),
             propertyType: overrides.propertyType || (property.category === 'commercial' ? 'Commercial Suite' : 'Residential Condominium'),
             yearBuilt: overrides.yearBuilt || 2016,
             developer: overrides.developer || 'Sunway Property',
@@ -127,7 +158,8 @@
                 image: 'pexels-binyaminmellish-106399.jpg',
                 detail: {
                     address: 'LaCosta, Sunway South Quay, Bandar Sunway, Selangor',
-                    mapEmbedUrl: createMapEmbedUrl('LaCosta, Sunway South Quay, Bandar Sunway, Selangor'),
+                    coordinates: { lat: 3.0674, lng: 101.6065 },
+                    mapEmbedUrl: createMapEmbedUrl('LaCosta, Sunway South Quay, Bandar Sunway, Selangor', { lat: 3.0674, lng: 101.6065 }),
                     propertyType: 'Residential Condominium',
                     yearBuilt: 2016,
                     developer: 'Sunway Property',
@@ -170,7 +202,8 @@
                 image: 'pexels-binyaminmellish-1396132.jpg',
                 detail: {
                     address: 'LaCosta Tower B, Sunway South Quay, Bandar Sunway, Selangor',
-                    mapEmbedUrl: createMapEmbedUrl('LaCosta Tower B, Sunway South Quay, Bandar Sunway, Selangor'),
+                    coordinates: { lat: 3.0674, lng: 101.6065 },
+                    mapEmbedUrl: createMapEmbedUrl('LaCosta Tower B, Sunway South Quay, Bandar Sunway, Selangor', { lat: 3.0674, lng: 101.6065 }),
                     propertyType: 'Residential Condominium',
                     yearBuilt: 2016,
                     developer: 'Sunway Property',
@@ -213,7 +246,8 @@
                 image: 'pexels-expect-best-79873-323780.jpg',
                 detail: {
                     address: 'Sunway GeoLake Residences, Bandar Sunway, Selangor',
-                    mapEmbedUrl: createMapEmbedUrl('Sunway GeoLake Residences, Bandar Sunway, Selangor'),
+                    coordinates: { lat: 3.0689, lng: 101.6107 },
+                    mapEmbedUrl: createMapEmbedUrl('Sunway GeoLake Residences, Bandar Sunway, Selangor', { lat: 3.0689, lng: 101.6107 }),
                     propertyType: 'Residential Condominium',
                     yearBuilt: 2019,
                     developer: 'Sunway Property',
@@ -256,7 +290,8 @@
                 image: 'pexels-luis-yanez-57302-206172.jpg',
                 detail: {
                     address: 'Sunway Geo Residence, Bandar Sunway, Selangor',
-                    mapEmbedUrl: createMapEmbedUrl('Sunway Geo Residence, Bandar Sunway, Selangor'),
+                    coordinates: { lat: 3.0681, lng: 101.6081 },
+                    mapEmbedUrl: createMapEmbedUrl('Sunway Geo Residence, Bandar Sunway, Selangor', { lat: 3.0681, lng: 101.6081 }),
                     propertyType: 'Residential Condominium',
                     yearBuilt: 2017,
                     developer: 'Sunway Property',
@@ -322,7 +357,21 @@
         } else {
             const detail = { ...cloned.detail };
             detail.address = detail.address || `${cloned.name}, ${cloned.location}`;
-            detail.mapEmbedUrl = detail.mapEmbedUrl || createMapEmbedUrl(detail.address);
+
+            if (detail.coordinates) {
+                if (!isFiniteNumber(detail.coordinates.lat) || !isFiniteNumber(detail.coordinates.lng)) {
+                    delete detail.coordinates;
+                } else {
+                    detail.coordinates = {
+                        lat: detail.coordinates.lat,
+                        lng: detail.coordinates.lng,
+                        latOffset: detail.coordinates.latOffset,
+                        lngOffset: detail.coordinates.lngOffset
+                    };
+                }
+            }
+
+            detail.mapEmbedUrl = detail.mapEmbedUrl || createMapEmbedUrl(detail.address, detail.coordinates);
             detail.propertyType = detail.propertyType || (cloned.category === 'commercial' ? 'Commercial Suite' : 'Residential Condominium');
             detail.yearBuilt = detail.yearBuilt || 2016;
             detail.developer = detail.developer || 'Sunway Property';
@@ -443,8 +492,57 @@
         }
 
         const mapFrame = document.getElementById('detailMap');
-        if (mapFrame && detail.mapEmbedUrl) {
+        const mapWrapper = document.querySelector('[data-map-wrapper]');
+        const fallback = mapWrapper?.querySelector('[data-map-fallback]');
+        const fallbackAddress = fallback?.querySelector('[data-map-address]');
+        const fallbackLink = fallback?.querySelector('[data-map-link]');
+
+        if (fallbackAddress) {
+            fallbackAddress.textContent = detail.address || property.location || property.name;
+        }
+
+        if (fallbackLink) {
+            const mapQuery = encodeURIComponent(detail.address || property.location || property.name || 'Bandar Sunway, Selangor');
+            fallbackLink.href = `https://www.openstreetmap.org/search?query=${mapQuery}`;
+        }
+
+        if (!mapFrame) {
+            return;
+        }
+
+        const setFallbackVisibility = (isVisible) => {
+            if (!fallback) {
+                return;
+            }
+
+            if (isVisible) {
+                fallback.removeAttribute('hidden');
+            } else {
+                fallback.setAttribute('hidden', '');
+            }
+        };
+
+        if (detail.mapEmbedUrl) {
+            if (mapFrame.dataset.mapSrc === detail.mapEmbedUrl) {
+                setFallbackVisibility(false);
+                mapFrame.removeAttribute('hidden');
+                return;
+            }
+
+            setFallbackVisibility(true);
+            mapFrame.removeAttribute('hidden');
+            const handleLoad = () => {
+                setFallbackVisibility(false);
+            };
+
+            mapFrame.addEventListener('load', handleLoad, { once: true });
             mapFrame.src = detail.mapEmbedUrl;
+            mapFrame.dataset.mapSrc = detail.mapEmbedUrl;
+        } else {
+            mapFrame.setAttribute('hidden', '');
+            mapFrame.src = 'about:blank';
+            setFallbackVisibility(true);
+            delete mapFrame.dataset.mapSrc;
         }
     };
 
