@@ -249,8 +249,86 @@
                     </div>
                 </section>
             </div>
+            <div class="buy-cta">
+                <button type="button" class="buy-button" id="openBuyModal">Buy Tokens</button>
+            </div>
         </div>
     </main>
+
+    <div class="buy-modal" id="buyModal" hidden>
+        <div class="buy-modal__overlay" data-buy-close></div>
+        <div class="buy-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="buyModalTitle" tabindex="-1">
+            <button type="button" class="buy-modal__close" data-buy-close aria-label="Close buy details">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="buyModalTitle">Purchase Tokens</h2>
+            <p class="buy-modal__intro">Choose how you would like to commit to this property and preview the expected allocation
+                before checking out.</p>
+            <form class="buy-form" id="buyForm" novalidate>
+                <fieldset class="buy-form__toggle" aria-label="Choose purchase input mode">
+                    <legend class="sr-only">Amount or units selection</legend>
+                    <label class="toggle-option">
+                        <input type="radio" name="buyMode" value="amount" checked>
+                        <span>Amount (RM)</span>
+                    </label>
+                    <label class="toggle-option">
+                        <input type="radio" name="buyMode" value="units">
+                        <span>Units</span>
+                    </label>
+                </fieldset>
+
+                <div class="buy-form__fields">
+                    <div class="form-field" data-mode="amount">
+                        <label for="buyAmount">Amount (RM)</label>
+                        <input type="number" id="buyAmount" name="buyAmount" inputmode="decimal" min="0" step="1"
+                            autocomplete="off">
+                    </div>
+                    <div class="form-field" data-mode="units">
+                        <label for="buyUnits">Units</label>
+                        <input type="number" id="buyUnits" name="buyUnits" inputmode="decimal" min="1" step="1"
+                            autocomplete="off" disabled>
+                    </div>
+                </div>
+
+                <div class="buy-slider">
+                    <div class="buy-slider__header">
+                        <label for="buySlider">Adjust commitment</label>
+                        <span class="buy-slider__range" aria-live="polite">
+                            <span data-slider-min></span>
+                            <span aria-hidden="true">→</span>
+                            <span data-slider-max></span>
+                        </span>
+                    </div>
+                    <input type="range" id="buySlider" name="buySlider" min="0" max="100" value="0">
+                </div>
+
+                <div class="buy-summary">
+                    <div class="summary-item">
+                        <span class="label">Selected amount</span>
+                        <strong data-summary-amount>RM 0</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Tokens acquired</span>
+                        <strong data-summary-units>0 tokens</strong>
+                    </div>
+                </div>
+
+                <div class="auto-invest">
+                    <label class="auto-invest__checkbox">
+                        <input type="checkbox" id="autoInvest" name="autoInvest">
+                        <span>Auto-invest?</span>
+                    </label>
+                    <div class="auto-invest__cap">
+                        <label for="autoInvestCap">Cap (% of portfolio)</label>
+                        <input type="number" id="autoInvestCap" name="autoInvestCap" min="1" max="100" step="1" value="15"
+                            disabled>
+                    </div>
+                </div>
+
+                <button type="submit" class="buy-form__submit">Proceed to checkout</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
