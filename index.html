@@ -29,6 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Make sure this is in the head section -->
     <link rel="stylesheet" href="css/components/chat.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js" async></script>
 </head>
 <body>
     <nav class="nav">
@@ -66,12 +67,10 @@
     </nav>
 
     <header class="hero">
-        <div class="floating-orb orb-1"></div>
-        <div class="floating-orb orb-2"></div>
-        <div class="floating-orb orb-3"></div>
-        <div class="floating-orb orb-4"></div>
-        <div class="floating-orb orb-5"></div>
-        <div class="floating-orb orb-6"></div>
+        <spline-viewer class="hero-spline" url="https://prod.spline.design/gxgXLmiwIASvMdmE/scene.splinecode">
+            <div class="hero-spline-fallback" aria-hidden="true"></div>
+        </spline-viewer>
+        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container">
             <h1>
                 <span>Revolutionizing Real Estate</span>
