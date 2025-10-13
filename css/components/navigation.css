@@ -113,7 +113,7 @@
     left: 0;
     min-width: 200px;
     background: rgba(18, 18, 18, 0.95);
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid var(--secondary-glow);
     border-radius: 8px;
     padding: 8px;
     opacity: 0;
@@ -144,7 +144,7 @@
 }
 
 .nav-dropdown a:hover {
-    background: rgba(29, 185, 84, 0.1);
+    background: rgba(108, 92, 231, 0.15);
     color: var(--secondary);
     transform: translateX(3px);
 }
@@ -164,7 +164,7 @@
 }
 
 .contact-btn:hover {
-    background: #1ed760;
+    background: var(--secondary-bright);
     transform: translateY(-2px);
 }
 

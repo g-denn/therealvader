@@ -17,7 +17,7 @@ footer::before {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(108, 92, 231, 0.3) 50%,
         transparent 100%
     );
     opacity: 1;
@@ -35,7 +35,7 @@ footer::after {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.1) 50%,
+        rgba(108, 92, 231, 0.1) 50%,
         transparent 100%
     );
     filter: blur(2px);
@@ -147,7 +147,7 @@ footer::after {
 .footer-bottom {
     margin-top: 60px;
     padding-top: 30px;
-    border-top: 1px solid rgba(29, 185, 84, 0.1);
+    border-top: 1px solid rgba(108, 92, 231, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -197,7 +197,7 @@
 }
 
 .metamask-link:hover {
-    color: #1ed760;
+    color: var(--financial-positive);
 }
 
 .external-link {

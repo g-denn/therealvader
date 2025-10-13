@@ -4,7 +4,12 @@
 /* Variables */
 :root {
     --primary: #000000;
-    --secondary: #1DB954;  /* Spotify-like green for accents */
+    --secondary: #6C5CE7;
+    --secondary-bright: #7F6FF5;
+    --secondary-soft: #8E7CFF;
+    --secondary-glow: rgba(108, 92, 231, 0.18);
+    --financial-positive: #1ED760;
+    --financial-positive-soft: rgba(30, 215, 96, 0.2);
     --text: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.7);
     --dark-gray: #121212;
@@ -77,7 +82,7 @@ a {
 }
 
 a:hover {
-    color: #1ed760;
+    color: var(--secondary-bright);
 }
 
 /* Buttons */
@@ -93,7 +98,7 @@ button {
 }
 
 button:hover {
-    background: #1ed760;
+    background: var(--secondary-bright);
     transform: translateY(-2px);
 }
 
@@ -111,7 +116,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--secondary);
-    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.1);
+    box-shadow: 0 0 0 2px var(--secondary-glow);
 }
 
 /* Smooth Scrolling */
@@ -160,7 +165,7 @@ body {
 
 /* Selection */
 ::selection {
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(108, 92, 231, 0.35);
     color: var(--text);
 }
 
@@ -197,7 +202,7 @@ section h2 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(29, 185, 84, 0.1);
+    text-shadow: 0 0 30px rgba(108, 92, 231, 0.15);
 }
 
 @keyframes floatText {
@@ -220,7 +225,7 @@ section h2 {
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(29, 185, 84, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.16) 0%, transparent 70%);
     filter: blur(20px);
     transform: translate(-50%, -50%);
     z-index: -1;

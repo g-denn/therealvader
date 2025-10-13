@@ -21,8 +21,8 @@
 }
 
 .tech-feature {
-    background: rgba(29, 185, 84, 0.05);
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    background: rgba(108, 92, 231, 0.05);
+    border: 1px solid rgba(108, 92, 231, 0.1);
     border-radius: 15px;
     padding: 30px;
     transition: all 0.3s ease;
@@ -30,7 +30,7 @@
 
 .tech-feature:hover {
     transform: translateY(-5px);
-    background: rgba(29, 185, 84, 0.1);
+    background: rgba(108, 92, 231, 0.1);
 }
 
 .tech-feature h3 {

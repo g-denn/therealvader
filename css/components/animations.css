@@ -48,7 +48,7 @@ body.animations-enabled .animate-on-scroll.is-visible {
     content: "";
     position: absolute;
     inset: -20%;
-    background: radial-gradient(circle at center, rgba(29, 185, 84, 0.18), transparent 70%);
+    background: radial-gradient(circle at center, rgba(108, 92, 231, 0.18), transparent 70%);
     opacity: 0;
     filter: blur(18px);
     z-index: -1;
