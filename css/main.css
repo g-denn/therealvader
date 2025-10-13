@@ -4,12 +4,17 @@
 /* Variables */
 :root {
     --primary: #000000;
+    --primary-black: #000000;
+    --secondary-black: #0b0b0f;
+    --tertiary-black: #141414;
     --secondary: #1DB954;  /* Spotify-like green for accents */
+    --contact-accent: #7C6CFF;
     --text: #FFFFFF;
+    --text-strong: rgba(255, 255, 255, 0.92);
     --text-secondary: rgba(255, 255, 255, 0.7);
-    --dark-gray: #121212;
-    --medium-gray: #1E1E1E;
-    --light-gray: #404040;
+    --dark-gray: #050505;
+    --medium-gray: #0b0b0f;
+    --light-gray: #1E1E1E;
 }
 
 /* Base Styles */
@@ -22,7 +27,7 @@
 body {
     line-height: 1.6;
     color: var(--text, #FFFFFF);
-    background: var(--dark-gray, #121212);
+    background: var(--primary-black, #000000);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     animation: fadeIn 0.3s ease-in;
 }
@@ -64,7 +69,7 @@ h3 {
 p {
     font-size: 1.1em;
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: var(--text-strong);
     margin-bottom: 15px;
     max-width: 800px;
 }
@@ -121,7 +126,7 @@ html {
 
 /* Add fallbacks for critical styles */
 body {
-    background-color: var(--dark-gray, #121212);
+    background-color: var(--primary-black, #000000);
     color: var(--text, #FFFFFF);
 }
 
