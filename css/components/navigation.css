@@ -154,8 +154,8 @@
 }
 
 .contact-btn {
-    background: var(--secondary);
-    color: var(--primary);
+    background: var(--contact-accent);
+    color: var(--text);
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
@@ -164,7 +164,7 @@
 }
 
 .contact-btn:hover {
-    background: #1ed760;
+    background: #938bff;
     transform: translateY(-2px);
 }
 

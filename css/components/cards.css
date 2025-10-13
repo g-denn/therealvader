@@ -1,6 +1,6 @@
 /* Card Base Styles */
 .card {
-    background: var(--dark-gray);
+    background: var(--secondary-black);
     border-radius: 15px;
     border: 1px solid rgba(29, 185, 84, 0.1);
     padding: 30px;
@@ -26,7 +26,7 @@
 
 /* Card Content */
 .card-content {
-    color: var(--text-secondary);
+    color: var(--text-strong);
     font-size: 1.05em;
     line-height: 1.6;
 }
