@@ -16,7 +16,7 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(108, 92, 231, 0.3) 50%,
         transparent 100%
     );
     opacity: 1;
@@ -33,7 +33,7 @@
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.1) 50%,
+        rgba(108, 92, 231, 0.1) 50%,
         transparent 100%
     );
     filter: blur(2px);
@@ -48,14 +48,14 @@
     padding: 40px;
     background: var(--dark-gray);
     border-radius: 15px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.1);
 }
 
 .crisis-text {
     padding: 30px;
     background: var(--dark-gray);
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.1);
 }
 
 .crisis-text p {
@@ -75,7 +75,7 @@
     padding: 20px;
     background: var(--dark-gray);
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.2);
+    border: 1px solid rgba(108, 92, 231, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -89,7 +89,7 @@
     background: var(--dark-gray);
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid rgba(29, 185, 84, 0.2);
+    border: 1px solid rgba(108, 92, 231, 0.2);
 }
 
 .crisis-card h3 {

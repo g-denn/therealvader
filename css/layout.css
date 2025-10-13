@@ -73,7 +73,7 @@ section h2::after,
         rgba(18, 18, 18, 0.95) 100%
     );
     border-radius: 20px;
-    border: 1px solid rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(108, 92, 231, 0.15);
 }
 
 /* Specific adjustments for contact form */
@@ -85,7 +85,7 @@ section h2::after,
         rgba(18, 18, 18, 0.95) 100%
     );
     border-radius: 20px;
-    border: 1px solid rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(108, 92, 231, 0.15);
 }
 
 /* Remove any conflicting margins */
@@ -132,7 +132,7 @@ section:not(:first-of-type)::before {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(108, 92, 231, 0.3) 50%,
         transparent 100%
     );
     opacity: 0.5;
@@ -150,7 +150,7 @@ section:not(:first-of-type)::after {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.1) 50%,
+        rgba(108, 92, 231, 0.1) 50%,
         transparent 100%
     );
     filter: blur(2px);
@@ -168,7 +168,7 @@ section:not(:first-of-type)::after {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(29, 185, 84, 0.3) 50%,
+        rgba(108, 92, 231, 0.3) 50%,
         transparent 100%
     );
     opacity: 0.5;

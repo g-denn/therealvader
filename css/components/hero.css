@@ -132,8 +132,8 @@ body.animations-enabled .hero h1 {
 }
 
 .hero-stat span {
-    background: rgba(29, 185, 84, 0.05);
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    background: rgba(108, 92, 231, 0.05);
+    border: 1px solid rgba(108, 92, 231, 0.1);
     border-radius: 20px;
     padding: 8px 16px;
     display: inline-block;
@@ -145,9 +145,9 @@ body.animations-enabled .hero h1 {
 }
 
 .hero-stat:hover span {
-    background: rgba(29, 185, 84, 0.1);
-    border-color: rgba(29, 185, 84, 0.2);
-    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.1);
+    background: rgba(108, 92, 231, 0.1);
+    border-color: rgba(108, 92, 231, 0.2);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.1);
 }
 
 .hero-stat strong {

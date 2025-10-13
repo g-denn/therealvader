@@ -2,14 +2,14 @@
 .card {
     background: var(--dark-gray);
     border-radius: 15px;
-    border: 1px solid rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.1);
     padding: 30px;
     transition: all 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: rgba(29, 185, 84, 0.2);
+    border-color: rgba(108, 92, 231, 0.2);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
