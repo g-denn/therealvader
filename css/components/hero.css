@@ -44,16 +44,18 @@
     margin-left: calc((100vw - 100%) / -2);
     overflow: hidden;
     z-index: 1;
+    min-height: clamp(420px, 70vh, 880px);
 }
 
-.hero-background spline-viewer,
-.hero-background iframe {
+.hero-background__canvas {
+    display: block;
     width: 100%;
     height: 100%;
-    min-height: 720px;
+    min-height: clamp(420px, 70vh, 880px);
     filter: brightness(0.9) saturate(1.1);
     opacity: 0.9;
     pointer-events: none;
+    background: var(--primary-black);
 }
 
 .hero-background__fallback {
@@ -69,7 +71,7 @@
     font-size: 1rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    z-index: 0;
+    z-index: 2;
     pointer-events: none;
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }

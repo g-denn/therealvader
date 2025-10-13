@@ -26,8 +26,7 @@
     <link rel="stylesheet" href="css/components/animations.css">
     <script src="js/code-showcase.js" defer></script>
     <script src="js/animations.js" defer></script>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.518/build/spline-viewer.js"></script>
-    <script src="js/spline-background.js" defer></script>
+    <script type="module" src="js/spline-background.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Make sure this is in the head section -->
     <link rel="stylesheet" href="css/components/chat.css">
@@ -68,9 +67,9 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-background">
-            <spline-viewer url="loading..." loading="eager" aria-label="Interactive blockchain skyline"></spline-viewer>
-            <div class="hero-background__fallback">Interactive background loading</div>
+        <div class="hero-background" aria-hidden="true">
+            <canvas id="canvas3d" class="hero-background__canvas"></canvas>
+            <div class="hero-background__fallback" role="status">Interactive background loading</div>
         </div>
         <div class="floating-orb orb-1"></div>
         <div class="floating-orb orb-2"></div>
